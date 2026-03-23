@@ -1,0 +1,39 @@
+---
+const techs = [
+  "Python",
+  "AWS",
+  "Azure",
+  "GCP",
+  "Docker",
+  "Kubernetes",
+  "Kafka",
+  "Spark",
+  "Terraform",
+  "PyTorch",
+  "TensorFlow",
+  "Pandas",
+  "Airflow",
+  "dbt",
+];
+---
+
+<section class="border-y border-white/[0.06] bg-navy py-8 overflow-hidden">
+  <div class="relative">
+    <!-- Fade edges -->
+    <div
+      class="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-navy to-transparent"
+    ></div>
+    <div
+      class="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-navy to-transparent"
+    ></div>
+
+    <div class="animate-marquee flex w-max gap-5">
+      {/* Duplicate set for seamless loop */}
+      {[...techs, ...techs].map((t) => (
+        <span class="inline-flex items-center whitespace-nowrap rounded-full border border-white/[0.08] bg-white/[0.03] px-5 py-2 text-sm text-slate-400">
+          {t}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>

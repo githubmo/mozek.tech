@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TechLogos from '../components/TechLogos.astro';
+import CTA from '../components/CTA.astro';
+
+const services = [
+  {
+    title: "Consulting & Data Engineering",
+    link: { label: "Consulting", href: "/services" },
+    img: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
+    imgAlt: "Team collaborating on a data strategy engagement",
+    paragraphs: [
+      "From cloud migration roadmaps to production-grade data pipelines, our consulting practice covers the full spectrum of modern data engineering. We embed with your team to design, build, and operate systems that scale — whether you're moving from on-premise infrastructure or optimising an existing cloud estate.",
+      "Our engineers bring hands-on expertise in lakehouse architectures, stream processing, ETL/ELT orchestration, and data governance. We don't just advise — we deliver working systems.",
+    ],
+  },
+  {
+    title: "Training",
+    link: { label: "Training", href: "/training" },
+    img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=600&fit=crop",
+    imgAlt: "Instructor leading a hands-on technical training session",
+    paragraphs: [
+      "Our expert-led training programmes are designed to upskill your engineering teams in the technologies that matter most. Every course is tailored to your organisation's stack and delivered by practitioners who use these tools daily.",
+    ],
+    bullets: [
+      "Programming & Version Control",
+      "Cloud Platforms (AWS, Azure, GCP)",
+      "Data Science & ML Fundamentals",
+      "Advanced ML Techniques",
+    ],
+  },
+  {
+    title: "Architecture Review",
+    link: { label: "Architecture", href: "/services" },
+    img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
+    imgAlt: "Server room representing infrastructure review",
+    paragraphs: [
+      "Our architecture reviews provide an independent, expert assessment of your existing data and cloud systems. We identify performance bottlenecks, security gaps, cost inefficiencies, and scalability risks — then deliver a prioritised roadmap to address them.",
+    ],
+  },
+  {
+    title: "Cloud Native Solutions",
+    link: { label: "Cloud", href: "/services" },
+    img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=600&fit=crop",
+    imgAlt: "Network connections representing cloud-native architecture",
+    paragraphs: [
+      "We design and build bespoke cloud-native applications and platforms — from IoT data ingestion systems to real-time analytics dashboards and ML-powered products. Our solutions leverage managed services and containerised workloads to maximise resilience while minimising operational overhead.",
+    ],
+  },
+];
+---
+
+<Layout title="Services — Mozek Technologies">
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="relative overflow-hidden pb-20 pt-16 lg:pb-28 lg:pt-24">
+    <div class="pointer-events-none absolute right-0 top-0 h-[600px] w-[600px] translate-x-1/3 -translate-y-1/4 rounded-full bg-teal/[0.06] blur-[120px]"></div>
+
+    <div class="relative mx-auto max-w-7xl px-6">
+      <h1 class="animate-on-load max-w-2xl font-heading text-4xl font-extrabold leading-tight text-white lg:text-6xl">
+        Our Services
+      </h1>
+      <p class="animate-on-load-d1 mt-6 max-w-2xl text-lg leading-relaxed text-slate-400">
+        We offer a comprehensive suite of data, cloud, and AI services — from strategic consulting and hands-on engineering through to training, architecture review, and bespoke product development.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════ SERVICE BLOCKS ══════════ -->
+  {services.map((s, i) => (
+    <section class:list={["py-20 lg:py-28", i % 2 === 1 ? "bg-navy-light" : ""]}>
+      <div class:list={[
+        "mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20",
+        i % 2 === 1 ? "direction-rtl" : "",
+      ]}>
+        {/* Text column */}
+        <div class:list={["", i % 2 === 1 ? "lg:order-2" : ""]} data-animate>
+          <h2 class="font-heading text-2xl font-bold text-white lg:text-3xl">{s.title}</h2>
+          {s.paragraphs.map((p) => (
+            <p class="mt-4 leading-relaxed text-slate-400">{p}</p>
+          ))}
+          {s.bullets && (
+            <ul class="mt-4 space-y-2">
+              {s.bullets.map((b) => (
+                <li class="flex items-center gap-2 text-slate-300">
+                  <span class="h-1.5 w-1.5 rounded-full bg-teal"></span>
+                  {b}
+                </li>
+              ))}
+            </ul>
+          )}
+          <a
+            href={s.link.href}
+            class="group mt-6 inline-flex items-center gap-1 text-sm font-semibold text-teal transition-colors hover:text-teal-dark"
+          >
+            {s.link.label} <span class="transition-transform group-hover:translate-x-0.5">&rarr;</span>
+          </a>
+        </div>
+
+        {/* Image column */}
+        <div class:list={["", i % 2 === 1 ? "lg:order-1" : ""]} data-animate data-delay="2">
+          <img
+            src={s.img}
+            alt={s.imgAlt}
+            class="w-full rounded-2xl border border-white/[0.06] object-cover"
+            width="800"
+            height="600"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- ══════════ TECH LOGOS ══════════ -->
+  <TechLogos />
+
+  <!-- ══════════ CTA ══════════ -->
+  <CTA />
+
+</Layout>

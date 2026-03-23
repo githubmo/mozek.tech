@@ -1,0 +1,139 @@
+---
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+
+const links = [
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Projects", href: "/projects" },
+  // { name: "Insights", href: "/insights" },
+  { name: "Training", href: "/training" },
+];
+---
+
+<header
+  class="fixed inset-x-0 top-0 z-50 bg-navy/80 backdrop-blur-xl border-b border-white/[0.06]"
+>
+  <div
+    class="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6"
+  >
+    <!-- Logo -->
+    <a
+      href="/"
+      class="relative z-[60] text-[1.35rem] font-heading font-bold tracking-tight text-white"
+    >
+      mozek
+    </a>
+
+    <!-- Desktop -->
+    <nav class="hidden items-center gap-8 lg:flex">
+      {
+        links.map((l) => (
+          <a
+            href={l.href}
+            class:list={[
+              "text-sm font-medium transition-colors duration-200",
+              path === l.href ? "text-teal" : "text-slate-400 hover:text-white",
+            ]}
+          >
+            {l.name}
+          </a>
+        ))
+      }
+      <a
+        href="/contact"
+        class:list={[
+          "rounded-full px-5 py-2 text-sm font-medium transition-all duration-200",
+          path === "/contact"
+            ? "bg-teal text-navy font-semibold"
+            : "border border-teal/30 text-teal hover:bg-teal hover:text-navy",
+        ]}
+      >
+        Contact &rarr;
+      </a>
+    </nav>
+
+    <!-- Hamburger -->
+    <button
+      id="nav-toggle"
+      class="relative z-[60] flex h-10 w-10 items-center justify-center lg:hidden"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+    >
+      <div id="burger" class="flex flex-col gap-[5px]">
+        <span
+          class="block h-[2px] w-6 origin-center bg-white transition-all duration-300"
+        ></span>
+        <span class="block h-[2px] w-6 bg-white transition-all duration-300"
+        ></span>
+        <span
+          class="block h-[2px] w-4 origin-center bg-white transition-all duration-300"
+        ></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div
+    id="mobile-drawer"
+    class="fixed inset-0 z-[55] flex translate-x-full flex-col bg-navy px-8 pt-28 transition-transform duration-300 ease-in-out lg:hidden"
+  >
+    {
+      links.map((l) => (
+        <a
+          href={l.href}
+          class:list={[
+            "block py-3 text-2xl font-heading font-semibold transition-colors",
+            path === l.href ? "text-teal" : "text-white hover:text-teal",
+          ]}
+        >
+          {l.name}
+        </a>
+      ))
+    }
+    <a
+      href="/contact"
+      class:list={[
+        "mt-4 block py-3 text-2xl font-heading font-semibold transition-colors",
+        path === "/contact" ? "text-teal" : "text-white hover:text-teal",
+      ]}
+    >
+      Contact &rarr;
+    </a>
+  </div>
+</header>
+
+<!-- Spacer -->
+<div class="h-[72px]" aria-hidden="true"></div>
+
+<script>
+  const btn = document.getElementById("nav-toggle");
+  const drawer = document.getElementById("mobile-drawer");
+  const burger = document.getElementById("burger");
+
+  if (btn && drawer && burger) {
+    let open = false;
+    const spans = burger.querySelectorAll("span");
+
+    btn.addEventListener("click", () => {
+      open = !open;
+      btn.setAttribute("aria-expanded", String(open));
+      drawer.classList.toggle("translate-x-full", !open);
+      drawer.classList.toggle("translate-x-0", open);
+      document.body.classList.toggle("overflow-hidden", open);
+
+      if (open) {
+        (spans[0] as HTMLElement).style.transform =
+          "translateY(3.5px) rotate(45deg)";
+        (spans[1] as HTMLElement).style.opacity = "0";
+        (spans[2] as HTMLElement).style.transform =
+          "translateY(-3.5px) rotate(-45deg)";
+        (spans[2] as HTMLElement).style.width = "1.5rem";
+      } else {
+        (spans[0] as HTMLElement).style.transform = "";
+        (spans[1] as HTMLElement).style.opacity = "";
+        (spans[2] as HTMLElement).style.transform = "";
+        (spans[2] as HTMLElement).style.width = "";
+      }
+    });
+  }
+</script>

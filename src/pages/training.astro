@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTA from '../components/CTA.astro';
+
+const whyCards = [
+  {
+    icon: "&#9881;",
+    title: "Hands-On, Practical Learning",
+    text: "No slides-only lectures. Every course includes real projects, coding labs, and exercises drawn from production scenarios your teams will actually encounter.",
+  },
+  {
+    icon: "&#9878;",
+    title: "Tailored to Your Stack",
+    text: "Courses are customised to your existing technology environment so engineers can apply what they learn from day one — not adapt generic examples.",
+  },
+  {
+    icon: "&#9733;",
+    title: "Delivered by Practitioners",
+    text: "All of our trainers are active engineers who build and operate data and ML systems daily. They teach from experience, not textbooks.",
+  },
+];
+
+const courses = [
+  {
+    icon: "python",
+    title: "Python for Data Engineering",
+    bullets: ["Data pipelines with pandas & polars", "Testing, packaging, and CI", "Building production-quality ETL scripts"],
+  },
+  {
+    icon: "&#9729;",
+    title: "Cloud Platforms (AWS / Azure / GCP)",
+    bullets: ["Infrastructure-as-Code with Terraform", "Networking and security fundamentals", "Managed data & ML services"],
+  },
+  {
+    icon: "&#128230;",
+    title: "Containers & Orchestration",
+    bullets: ["Docker fundamentals & best practices", "Kubernetes deployments & services", "Helm charts and GitOps workflows"],
+  },
+  {
+    icon: "&#9861;",
+    title: "Data Pipelines & Streaming",
+    bullets: ["Kafka, Spark, Airflow, dbt", "Real-time vs batch architectures", "Data quality and observability"],
+  },
+  {
+    icon: "&#129302;",
+    title: "Machine Learning Fundamentals",
+    bullets: ["scikit-learn & model evaluation", "Feature engineering strategies", "From notebook to reproducible pipeline"],
+  },
+  {
+    icon: "&#128640;",
+    title: "MLOps & Production ML",
+    bullets: ["Model serving & inference APIs", "Experiment tracking (MLflow, W&B)", "CI/CD for ML pipelines"],
+  },
+];
+
+const steps = [
+  { num: "1", title: "Discovery Call", text: "We discuss your team's current skill levels, tech stack, and learning objectives." },
+  { num: "2", title: "Custom Curriculum", text: "We design a tailored programme with relevant exercises and real-world scenarios." },
+  { num: "3", title: "Delivery & Follow-Up", text: "Hands-on sessions delivered on-site or remotely, with post-training support and resources." },
+];
+---
+
+<Layout title="Training — Mozek Technologies">
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="relative overflow-hidden pb-20 pt-16 lg:pb-28 lg:pt-24">
+    <div class="pointer-events-none absolute left-0 top-0 h-[600px] w-[600px] -translate-x-1/3 -translate-y-1/4 rounded-full bg-teal/[0.06] blur-[120px]"></div>
+
+    <div class="relative mx-auto max-w-7xl px-6">
+      <h1 class="animate-on-load max-w-3xl font-heading text-4xl font-extrabold leading-tight text-white lg:text-6xl">
+        Expert-Led Technical Training
+      </h1>
+      <p class="animate-on-load-d1 mt-6 max-w-2xl text-lg leading-relaxed text-slate-400">
+        Mozek Technologies delivers hands-on training programmes designed to upskill your engineering teams in modern cloud, data, and AI technologies. Whether you are onboarding new hires or deepening senior expertise, our courses are tailored to your organisation's needs.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════ WHY TRAIN ══════════ -->
+  <section class="bg-navy-light py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="font-heading text-3xl font-bold text-white lg:text-4xl" data-animate>
+        Why Train with Mozek?
+      </h2>
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        {whyCards.map((c, i) => (
+          <div
+            class="rounded-2xl border border-white/[0.06] bg-navy p-8"
+            data-animate
+            data-delay={String(i + 1)}
+          >
+            <span class="text-3xl" set:html={c.icon} />
+            <h3 class="mt-4 font-heading text-lg font-semibold text-white">{c.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">{c.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CATALOGUE ══════════ -->
+  <section class="py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="font-heading text-3xl font-bold text-white lg:text-4xl" data-animate>
+        Our Training Catalogue
+      </h2>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {courses.map((c, i) => (
+          <div
+            class="rounded-2xl border border-white/[0.06] bg-navy-light p-8"
+            data-animate
+            data-delay={String(Math.min(i + 1, 6))}
+          >
+            {c.icon === "python" ? (
+              <svg class="h-8 w-8" viewBox="0 0 256 255" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+                <defs>
+                  <linearGradient id="py-a" x1="12.959%" y1="12.039%" x2="79.639%" y2="78.201%">
+                    <stop offset="0%" stop-color="#387EB8"/>
+                    <stop offset="100%" stop-color="#366994"/>
+                  </linearGradient>
+                  <linearGradient id="py-b" x1="19.128%" y1="20.579%" x2="90.742%" y2="88.429%">
+                    <stop offset="0%" stop-color="#FFC836"/>
+                    <stop offset="100%" stop-color="#FFD43B"/>
+                  </linearGradient>
+                </defs>
+                <path d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072zM92.802 19.66a11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13 11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.13z" fill="url(#py-a)"/>
+                <path d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.518 33.897zm34.114-19.586a11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.131 11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13z" fill="url(#py-b)"/>
+              </svg>
+            ) : (
+              <span class="text-3xl" set:html={c.icon} />
+            )}
+            <h3 class="mt-4 font-heading text-lg font-semibold text-white">{c.title}</h3>
+            <ul class="mt-3 space-y-2">
+              {c.bullets.map((b) => (
+                <li class="flex items-start gap-2 text-sm text-slate-400">
+                  <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal/60"></span>
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ HOW IT WORKS ══════════ -->
+  <section class="bg-navy-light py-20 lg:py-28">
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="text-center font-heading text-3xl font-bold text-white lg:text-4xl" data-animate>
+        How It Works
+      </h2>
+      <div class="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-3">
+        {steps.map((s, i) => (
+          <div class="text-center" data-animate data-delay={String(i + 1)}>
+            <span class="inline-flex h-14 w-14 items-center justify-center rounded-full border border-teal/20 bg-teal/[0.08] font-heading text-xl font-bold text-teal">
+              {s.num}
+            </span>
+            <h3 class="mt-4 font-heading text-lg font-semibold text-white">{s.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ MINI CTA ══════════ -->
+  <section class="py-20 lg:py-28">
+    <div class="mx-auto max-w-3xl px-6 text-center" data-animate>
+      <h2 class="font-heading text-3xl font-bold text-white lg:text-4xl">
+        Ready to upskill your team?
+      </h2>
+      <p class="mt-4 text-slate-400">
+        Let's design a training programme tailored to your organisation.
+      </p>
+      <a
+        href="/contact"
+        class="mt-8 inline-block rounded-full bg-teal px-7 py-3 text-sm font-semibold text-navy transition-colors hover:bg-teal-dark"
+      >
+        Get in Touch &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════ CTA ══════════ -->
+  <CTA />
+
+</Layout>
