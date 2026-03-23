@@ -2,12 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import WhyMozek from "../components/WhyMozek.astro";
 import CTA from "../components/CTA.astro";
+import { Image } from "astro:assets";
+import moImg from "../images/mo.jpg";
 
 const team = [
   {
     name: "Mohammed Abdulrazeg",
     role: "Founder and Director",
-    img: "src/images/mo.jpg",
+    img: moImg,
     bio: "Over 15 years of experience leading large-scale data platform initiatives across financial services and healthcare. Specialises in distributed systems design, cloud migration strategy, and building high-performing engineering teams.",
   },
   // {
@@ -76,12 +78,12 @@ const team = [
               data-animate
               data-delay={String(i + 1)}
             >
-              <img
+              <Image
                 src={m.img}
                 alt={m.name}
                 class="h-96 w-full object-cover object-center"
-                width="400"
-                height="450"
+                width={400}
+                height={450}
                 loading="lazy"
               />
               <div class="p-6">
