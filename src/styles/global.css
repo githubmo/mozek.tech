@@ -1,4 +1,49 @@
 @import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "mozek-dark";
+  default: true;
+  prefersdark: false;
+  color-scheme: dark;
+
+  --color-base-100: oklch(19.98% 0.0403 258.3);
+  --color-base-200: oklch(23.22% 0.0461 261.7);
+  --color-base-300: oklch(27.96% 0.0474 258.7);
+  --color-base-content: oklch(84% 0.02 255);
+
+  --color-primary: oklch(82.52% 0.1511 178.7);
+  --color-primary-content: oklch(19.98% 0.0403 258.3);
+
+  --color-secondary: oklch(73.42% 0.1345 178.7);
+  --color-secondary-content: oklch(19.98% 0.0403 258.3);
+
+  --color-accent: oklch(82.52% 0.1511 178.7);
+  --color-accent-content: oklch(19.98% 0.0403 258.3);
+
+  --color-neutral: oklch(27.96% 0.0474 258.7);
+  --color-neutral-content: oklch(84% 0.02 255);
+
+  --color-info: oklch(70% 0.15 240);
+  --color-info-content: oklch(98% 0.01 240);
+  --color-success: oklch(72% 0.19 155);
+  --color-success-content: oklch(98% 0.01 155);
+  --color-warning: oklch(82% 0.18 80);
+  --color-warning-content: oklch(20% 0.05 80);
+  --color-error: oklch(65% 0.25 25);
+  --color-error-content: oklch(98% 0.01 25);
+
+  --radius-selector: 9999px;
+  --radius-field: 9999px;
+  --radius-box: 1rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
 
 @theme {
   --color-navy: #0a1628;

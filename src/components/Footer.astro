@@ -11,63 +11,36 @@ const navLinks = [
 
 <footer class="border-t border-white/[0.06] bg-navy-light">
   <div class="mx-auto max-w-7xl px-6 py-16 lg:py-20">
-    <div class="grid gap-12 md:grid-cols-3">
+    <div class="footer sm:footer-horizontal">
       <!-- Brand -->
-      <div>
+      <aside>
         <a href="/" class="text-xl font-heading font-bold text-white">mozek</a>
-        <p class="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
+        <p class="max-w-xs text-sm leading-relaxed text-slate-400">
           Senior engineers specialising in cloud platforms, data engineering,
           machine learning and AI. We help organisations turn complex data
           challenges into competitive advantages.
         </p>
-      </div>
+      </aside>
 
       <!-- Navigation -->
-      <div>
-        <h4
-          class="text-xs font-semibold uppercase tracking-widest text-slate-500"
-        >
-          Navigation
-        </h4>
-        <ul class="mt-4 space-y-3">
-          {
-            navLinks.map((l) => (
-              <li>
-                <a
-                  href={l.href}
-                  class="text-sm text-slate-400 transition-colors hover:text-white"
-                >
-                  {l.name}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+      <nav>
+        <h6 class="footer-title">Navigation</h6>
+        {
+          navLinks.map((l) => (
+            <a href={l.href} class="link link-hover">
+              {l.name}
+            </a>
+          ))
+        }
+      </nav>
 
       <!-- Connect -->
-      <div>
-        <h4
-          class="text-xs font-semibold uppercase tracking-widest text-slate-500"
-        >
-          Connect
-        </h4>
-        <ul class="mt-4 space-y-3 text-sm">
-          <li>
-            <a
-              href="mailto:hello@mozek.tech"
-              class="text-slate-400 transition-colors hover:text-teal"
-            >
-              hello@mozek.tech
-            </a>
-          </li>
-          <!-- <li>
-            <a href="tel:+442000000000" class="text-slate-400 transition-colors hover:text-teal">
-              +44 20 0000 0000
-            </a>
-          </li> -->
-        </ul>
-      </div>
+      <nav>
+        <h6 class="footer-title">Connect</h6>
+        <a href="mailto:hello@mozek.tech" class="link link-hover text-primary">
+          hello@mozek.tech
+        </a>
+      </nav>
     </div>
 
     <!-- Copyright -->

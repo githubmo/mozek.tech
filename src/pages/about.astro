@@ -74,24 +74,26 @@ const team = [
         {
           team.map((m, i) => (
             <div
-              class="overflow-hidden rounded-2xl border border-white/[0.06] bg-navy"
+              class="card bg-base-100 border border-white/[0.06] overflow-hidden"
               data-animate
               data-delay={String(i + 1)}
             >
-              <Image
-                src={m.img}
-                alt={m.name}
-                class="h-96 w-full object-cover object-center"
-                width={400}
-                height={450}
-                loading="lazy"
-              />
-              <div class="p-6">
-                <h3 class="font-heading text-lg font-semibold text-white">
+              <figure>
+                <Image
+                  src={m.img}
+                  alt={m.name}
+                  class="h-96 w-full object-cover object-center"
+                  width={400}
+                  height={450}
+                  loading="lazy"
+                />
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title font-heading text-white">
                   {m.name}
                 </h3>
-                <p class="text-sm font-medium text-teal">{m.role}</p>
-                <p class="mt-3 text-sm leading-relaxed text-slate-400">
+                <p class="text-sm font-medium text-primary">{m.role}</p>
+                <p class="mt-1 text-sm leading-relaxed text-slate-400">
                   {m.bio}
                 </p>
               </div>
