@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CTA from '../components/CTA.astro';
+import { Icon } from 'astro-icon/components';
 
 const whyCards = [
   {
@@ -20,35 +21,61 @@ const whyCards = [
   },
 ];
 
-const courses = [
+const courses: { title: string; bullets: string[]; icons: { slug: string; color: string }[] }[] = [
   {
-    icon: "python",
     title: "Python for Data Engineering",
+    icons: [
+      { slug: "python", color: "#3776AB" },
+      { slug: "pandas", color: "#F5EFE6" },
+      { slug: "polars", color: "#F5EFE6" },
+    ],
     bullets: ["Data pipelines with pandas & polars", "Testing, packaging, and CI", "Building production-quality ETL scripts"],
   },
   {
-    icon: "&#9729;",
     title: "Cloud Platforms (AWS / Azure / GCP)",
+    icons: [
+      { slug: "amazonwebservices", color: "#FF9900" },
+      { slug: "microsoftazure", color: "#0078D4" },
+      { slug: "googlecloud", color: "#4285F4" },
+      { slug: "terraform", color: "#7B42BC" },
+    ],
     bullets: ["Infrastructure-as-Code with Terraform", "Networking and security fundamentals", "Managed data & ML services"],
   },
   {
-    icon: "&#128230;",
     title: "Containers & Orchestration",
+    icons: [
+      { slug: "docker", color: "#2496ED" },
+      { slug: "kubernetes", color: "#326CE5" },
+      { slug: "helm", color: "#F5EFE6" },
+    ],
     bullets: ["Docker fundamentals & best practices", "Kubernetes deployments & services", "Helm charts and GitOps workflows"],
   },
   {
-    icon: "&#9861;",
     title: "Data Pipelines & Streaming",
+    icons: [
+      { slug: "apachekafka", color: "#F5EFE6" },
+      { slug: "apachespark", color: "#E25A1C" },
+      { slug: "apacheairflow", color: "#017CEE" },
+      { slug: "dbt", color: "#FF694A" },
+    ],
     bullets: ["Kafka, Spark, Airflow, dbt", "Real-time vs batch architectures", "Data quality and observability"],
   },
   {
-    icon: "&#129302;",
     title: "Machine Learning Fundamentals",
+    icons: [
+      { slug: "scikitlearn", color: "#F7931E" },
+      { slug: "jupyter", color: "#F37626" },
+      { slug: "numpy", color: "#F5EFE6" },
+    ],
     bullets: ["scikit-learn & model evaluation", "Feature engineering strategies", "From notebook to reproducible pipeline"],
   },
   {
-    icon: "&#128640;",
     title: "MLOps & Production ML",
+    icons: [
+      { slug: "mlflow", color: "#0194E2" },
+      { slug: "weightsandbiases", color: "#FFBE00" },
+      { slug: "githubactions", color: "#2088FF" },
+    ],
     bullets: ["Model serving & inference APIs", "Experiment tracking (MLflow, W&B)", "CI/CD for ML pipelines"],
   },
 ];
@@ -114,25 +141,16 @@ const steps = [
             data-delay={String(Math.min(i + 1, 6))}
           >
             <div class="card-body">
-              {c.icon === "python" ? (
-                <svg class="h-8 w-8" viewBox="0 0 256 255" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
-                  <defs>
-                    <linearGradient id="py-a" x1="12.959%" y1="12.039%" x2="79.639%" y2="78.201%">
-                      <stop offset="0%" stop-color="#387EB8"/>
-                      <stop offset="100%" stop-color="#366994"/>
-                    </linearGradient>
-                    <linearGradient id="py-b" x1="19.128%" y1="20.579%" x2="90.742%" y2="88.429%">
-                      <stop offset="0%" stop-color="#FFC836"/>
-                      <stop offset="100%" stop-color="#FFD43B"/>
-                    </linearGradient>
-                  </defs>
-                  <path d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072zM92.802 19.66a11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13 11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.13z" fill="url(#py-a)"/>
-                  <path d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.518 33.897zm34.114-19.586a11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.131 11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13z" fill="url(#py-b)"/>
-                </svg>
-              ) : (
-                <span class="text-3xl" set:html={c.icon} />
-              )}
-              <h3 class="card-title font-heading text-white">{c.title}</h3>
+              <div class="flex items-center gap-3">
+                {c.icons.map((ic) => (
+                  <Icon
+                    name={`simple-icons:${ic.slug}`}
+                    style={{ color: ic.color }}
+                    class="h-8 w-8 shrink-0"
+                  />
+                ))}
+              </div>
+              <h3 class="card-title font-heading text-white mt-2">{c.title}</h3>
               <ul class="mt-1 space-y-2">
                 {c.bullets.map((b) => (
                   <li class="flex items-start gap-2 text-sm text-stone-400">

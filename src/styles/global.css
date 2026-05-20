@@ -7,22 +7,22 @@
   prefersdark: false;
   color-scheme: dark;
 
-  /* Atelier palette — warm dark, terracotta accent */
-  --color-base-100: oklch(12% 0.005 60);     /* #0F0D0B warm black */
-  --color-base-200: oklch(18% 0.008 55);     /* #1A1612 surface */
-  --color-base-300: oklch(23% 0.010 55);     /* #221D18 elevated */
+  /* Atelier palette — off-navy base, terracotta accent, cream text */
+  --color-base-100: oklch(16% 0.030 255);    /* #0B1424 off-navy */
+  --color-base-200: oklch(21% 0.035 258);    /* #131D32 surface */
+  --color-base-300: oklch(26% 0.040 258);    /* #1C2740 elevated */
   --color-base-content: oklch(95% 0.013 80); /* #F5EFE6 cream */
 
   --color-primary: oklch(68% 0.14 35);       /* #E07856 terracotta */
-  --color-primary-content: oklch(12% 0.005 60);
+  --color-primary-content: oklch(16% 0.030 255);
 
   --color-secondary: oklch(73% 0.07 80);     /* #C8A878 warm tan */
-  --color-secondary-content: oklch(12% 0.005 60);
+  --color-secondary-content: oklch(16% 0.030 255);
 
   --color-accent: oklch(68% 0.14 35);        /* terracotta */
-  --color-accent-content: oklch(12% 0.005 60);
+  --color-accent-content: oklch(16% 0.030 255);
 
-  --color-neutral: oklch(23% 0.010 55);
+  --color-neutral: oklch(26% 0.040 258);
   --color-neutral-content: oklch(95% 0.013 80);
 
   --color-info: oklch(70% 0.10 220);
