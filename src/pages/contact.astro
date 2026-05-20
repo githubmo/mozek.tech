@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import WhyMozek from "../components/WhyMozek.astro";
 import TechLogos from "../components/TechLogos.astro";
+import BrandImage from "../components/BrandImage.astro";
 ---
 
 <Layout title="Contact — Mozek Technologies">
@@ -88,13 +89,11 @@ import TechLogos from "../components/TechLogos.astro";
       </div>
 
       <div data-animate data-delay="2">
-        <img
+        <BrandImage
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop"
           alt="Modern office space"
-          class="w-full rounded-2xl border border-ink-700/60 object-cover"
-          width="800"
-          height="600"
-          loading="lazy"
+          width={800}
+          height={600}
         />
       </div>
     </div>

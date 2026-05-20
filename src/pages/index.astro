@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import TechLogos from "../components/TechLogos.astro";
 import CTA from "../components/CTA.astro";
+import BrandImage from "../components/BrandImage.astro";
 ---
 
 <Layout title="Mozek Technologies — Data, Cloud & AI Engineering">
@@ -94,13 +95,11 @@ import CTA from "../components/CTA.astro";
       </div>
 
       <div data-animate data-delay="2">
-        <img
+        <BrandImage
           src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop"
           alt="Close-up of a circuit board representing data infrastructure"
-          class="w-full rounded-2xl border border-ink-700/60 object-cover"
-          width="800"
-          height="600"
-          loading="lazy"
+          width={800}
+          height={600}
         />
       </div>
     </div>
@@ -162,13 +161,11 @@ import CTA from "../components/CTA.astro";
       class="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20"
     >
       <div class="order-2 lg:order-1" data-animate data-delay="2">
-        <img
+        <BrandImage
           src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=600&fit=crop"
           alt="Engineer working on code representing proven delivery"
-          class="w-full rounded-2xl border border-ink-700/60 object-cover"
-          width="800"
-          height="600"
-          loading="lazy"
+          width={800}
+          height={600}
         />
       </div>
 

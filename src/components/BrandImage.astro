@@ -1,0 +1,41 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  rounded?: boolean;
+  border?: boolean;
+}
+
+const {
+  src,
+  alt,
+  width = 800,
+  height = 600,
+  class: className = "",
+  rounded = true,
+  border = true,
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    "relative isolate overflow-hidden",
+    rounded && "rounded-2xl",
+    border && "border border-ink-700/60",
+    className,
+  ]}
+>
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading="lazy"
+    class="block h-full w-full object-cover grayscale brightness-90 contrast-110"
+  />
+  <div class="pointer-events-none absolute inset-0 bg-info mix-blend-color opacity-30"></div>
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900/40 via-transparent to-transparent"></div>
+</div>

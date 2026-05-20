@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import TechLogos from '../components/TechLogos.astro';
 import CTA from '../components/CTA.astro';
+import BrandImage from '../components/BrandImage.astro';
 
 const services = [
   {
@@ -99,14 +100,7 @@ const services = [
 
         {/* Image column */}
         <div class:list={["", i % 2 === 1 ? "lg:order-1" : ""]} data-animate data-delay="2">
-          <img
-            src={s.img}
-            alt={s.imgAlt}
-            class="w-full rounded-2xl border border-ink-700/60 object-cover"
-            width="800"
-            height="600"
-            loading="lazy"
-          />
+          <BrandImage src={s.img} alt={s.imgAlt} width={800} height={600} />
         </div>
       </div>
     </section>

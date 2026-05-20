@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import TechLogos from "../components/TechLogos.astro";
 import CTA from "../components/CTA.astro";
+import BrandImage from "../components/BrandImage.astro";
 import { Image } from "astro:assets";
 import dealermadeImg from "../images/dealermade.png";
 ---
@@ -112,13 +113,14 @@ import dealermadeImg from "../images/dealermade.png";
         </div>
 
         <!-- Project image -->
-        <img
+        <BrandImage
           src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=400&fit=crop"
           alt="Team collaborating on a data platform project"
-          class="w-full border-t border-ink-700/60 object-cover"
-          width="1200"
-          height="400"
-          loading="lazy"
+          width={1200}
+          height={400}
+          rounded={false}
+          border={false}
+          class="border-t border-ink-700/60"
         />
       </div>
     </div>
