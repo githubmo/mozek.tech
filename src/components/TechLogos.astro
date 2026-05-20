@@ -1,19 +1,33 @@
 ---
-const techs = [
-  "Python",
-  "AWS",
-  "Azure",
-  "GCP",
-  "Docker",
-  "Kubernetes",
-  "Kafka",
-  "Spark",
-  "Terraform",
-  "PyTorch",
-  "TensorFlow",
-  "Pandas",
-  "Airflow",
-  "dbt",
+import { Icon } from "astro-icon/components";
+
+const techs: { name: string; icon: string; color: string }[] = [
+  { name: "Python", icon: "simple-icons:python", color: "#3776AB" },
+  { name: "Scala", icon: "simple-icons:scala", color: "#DC322F" },
+  { name: "Rust", icon: "simple-icons:rust", color: "#FFFFFF" },
+  { name: "Go", icon: "simple-icons:go", color: "#00ADD8" },
+  { name: "AWS", icon: "simple-icons:amazonwebservices", color: "#FF9900" },
+  { name: "Azure", icon: "simple-icons:microsoftazure", color: "#0078D4" },
+  { name: "GCP", icon: "simple-icons:googlecloud", color: "#4285F4" },
+  { name: "Docker", icon: "simple-icons:docker", color: "#2496ED" },
+  { name: "Kubernetes", icon: "simple-icons:kubernetes", color: "#326CE5" },
+  { name: "Terraform", icon: "simple-icons:terraform", color: "#7B42BC" },
+  { name: "PostgreSQL", icon: "simple-icons:postgresql", color: "#4169E1" },
+  { name: "Redis", icon: "simple-icons:redis", color: "#FF4438" },
+  { name: "Kafka", icon: "simple-icons:apachekafka", color: "#FFFFFF" },
+  { name: "Spark", icon: "simple-icons:apachespark", color: "#E25A1C" },
+  { name: "Trino", icon: "simple-icons:trino", color: "#DD00A1" },
+  { name: "Airflow", icon: "simple-icons:apacheairflow", color: "#017CEE" },
+  { name: "dbt", icon: "simple-icons:dbt", color: "#FF694A" },
+  { name: "Pandas", icon: "simple-icons:pandas", color: "#FFFFFF" },
+  { name: "PyTorch", icon: "simple-icons:pytorch", color: "#EE4C2C" },
+  { name: "TensorFlow", icon: "simple-icons:tensorflow", color: "#FF6F00" },
+  { name: "OpenAI", icon: "simple-icons:openai", color: "#FFFFFF" },
+  { name: "Anthropic", icon: "simple-icons:anthropic", color: "#D97757" },
+  { name: "LangChain", icon: "simple-icons:langchain", color: "#FFFFFF" },
+  { name: "Prometheus", icon: "simple-icons:prometheus", color: "#E6522C" },
+  { name: "Grafana", icon: "simple-icons:grafana", color: "#F46800" },
+  { name: "OpenTelemetry", icon: "simple-icons:opentelemetry", color: "#FFFFFF" },
 ];
 ---
 
@@ -27,12 +41,16 @@ const techs = [
       class="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-navy to-transparent"
     ></div>
 
-    <div class="animate-marquee flex w-max gap-5">
+    <div class="animate-marquee flex w-max items-center gap-10">
       {/* Duplicate set for seamless loop */}
       {[...techs, ...techs].map((t) => (
-        <span class="inline-flex items-center whitespace-nowrap rounded-full border border-white/[0.08] bg-white/[0.03] px-5 py-2 text-sm text-slate-400">
-          {t}
-        </span>
+        <Icon
+          name={t.icon}
+          title={t.name}
+          aria-label={t.name}
+          style={{ color: t.color }}
+          class="h-10 w-10 shrink-0 opacity-80 transition-opacity hover:opacity-100"
+        />
       ))}
     </div>
   </div>
