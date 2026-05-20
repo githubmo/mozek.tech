@@ -1,38 +1,72 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+/*
+ * Mozek palette — Radix-style tonal system.
+ * One neutral scale (ink, cool slate-navy) used for every non-accent surface:
+ * app bg, surfaces, borders, dividers, and all text levels.
+ * Single warm accent (terracotta) is the only chromatic colour — that's
+ * what makes it carry weight.
+ */
+
+@theme {
+  --font-heading: "Outfit", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Ink scale — perceptually spaced in OKLCH, hue ~252, chroma ~0.03 */
+  --color-ink-50:  oklch(96% 0.012 252);  /* #EAEFF5 headings */
+  --color-ink-100: oklch(89% 0.018 252);  /* #D3DCE8 strong text */
+  --color-ink-200: oklch(78% 0.025 252);  /* #B0BDCF body text */
+  --color-ink-300: oklch(66% 0.028 252);  /* #8993AC body secondary */
+  --color-ink-400: oklch(54% 0.030 252);  /* #5F6E8C muted text */
+  --color-ink-500: oklch(42% 0.030 252);  /* #44537A subtle text / icons */
+  --color-ink-600: oklch(33% 0.035 252);  /* #2E3D5E hover border */
+  --color-ink-700: oklch(26% 0.038 252);  /* #1F2C49 border */
+  --color-ink-800: oklch(20% 0.035 252);  /* #131D32 elevated surface */
+  --color-ink-900: oklch(16% 0.030 252);  /* #0B1424 surface */
+  --color-ink-950: oklch(12% 0.022 252);  /* #060D1A deepest bg */
+
+  /* Accent — terracotta, the only warm hue */
+  --color-accent-500: oklch(68% 0.14 35);  /* #E07856 primary */
+  --color-accent-600: oklch(60% 0.13 33);  /* #C46446 hover/pressed */
+  --color-accent-300: oklch(78% 0.10 38);  /* #EAA68A tint */
+}
+
 @plugin "daisyui/theme" {
   name: "mozek-dark";
   default: true;
   prefersdark: false;
   color-scheme: dark;
 
-  /* Atelier palette — off-navy base, terracotta accent, cream text */
-  --color-base-100: oklch(16% 0.030 255);    /* #0B1424 off-navy */
-  --color-base-200: oklch(21% 0.035 258);    /* #131D32 surface */
-  --color-base-300: oklch(26% 0.040 258);    /* #1C2740 elevated */
-  --color-base-content: oklch(95% 0.013 80); /* #F5EFE6 cream */
+  /* Surfaces map to ink scale */
+  --color-base-100: oklch(16% 0.030 252);    /* ink-900 — app bg */
+  --color-base-200: oklch(20% 0.035 252);    /* ink-800 — surface */
+  --color-base-300: oklch(26% 0.038 252);    /* ink-700 — elevated */
+  --color-base-content: oklch(78% 0.025 252);/* ink-200 — body text */
 
-  --color-primary: oklch(68% 0.14 35);       /* #E07856 terracotta */
-  --color-primary-content: oklch(16% 0.030 255);
+  /* Accent */
+  --color-primary: oklch(68% 0.14 35);
+  --color-primary-content: oklch(16% 0.030 252);
+  --color-accent: oklch(68% 0.14 35);
+  --color-accent-content: oklch(16% 0.030 252);
 
-  --color-secondary: oklch(73% 0.07 80);     /* #C8A878 warm tan */
-  --color-secondary-content: oklch(16% 0.030 255);
+  /* Secondary — desaturated step of accent, used sparingly */
+  --color-secondary: oklch(60% 0.13 33);
+  --color-secondary-content: oklch(96% 0.012 252);
 
-  --color-accent: oklch(68% 0.14 35);        /* terracotta */
-  --color-accent-content: oklch(16% 0.030 255);
+  /* Neutral — used by DaisyUI for chips/badges; pulled from ink scale */
+  --color-neutral: oklch(26% 0.038 252);
+  --color-neutral-content: oklch(89% 0.018 252);
 
-  --color-neutral: oklch(26% 0.040 258);
-  --color-neutral-content: oklch(95% 0.013 80);
-
-  --color-info: oklch(70% 0.10 220);
-  --color-info-content: oklch(98% 0.01 220);
-  --color-success: oklch(70% 0.13 145);
-  --color-success-content: oklch(98% 0.01 145);
-  --color-warning: oklch(80% 0.15 75);
-  --color-warning-content: oklch(20% 0.05 75);
-  --color-error: oklch(62% 0.20 25);
-  --color-error-content: oklch(98% 0.01 25);
+  /* Status — tuned so chroma matches accent's punch */
+  --color-info: oklch(72% 0.12 230);
+  --color-info-content: oklch(16% 0.030 252);
+  --color-success: oklch(72% 0.14 160);
+  --color-success-content: oklch(16% 0.030 252);
+  --color-warning: oklch(80% 0.14 75);
+  --color-warning-content: oklch(16% 0.030 252);
+  --color-error: oklch(64% 0.20 25);
+  --color-error-content: oklch(96% 0.012 252);
 
   --radius-selector: 9999px;
   --radius-field: 9999px;
@@ -44,11 +78,6 @@
   --border: 1px;
   --depth: 0;
   --noise: 0;
-}
-
-@theme {
-  --font-heading: "Outfit", sans-serif;
-  --font-body: "Inter", sans-serif;
 }
 
 html {

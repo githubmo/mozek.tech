@@ -21,19 +21,19 @@ const cards = [
 
 <section class="py-20 lg:py-28">
   <div class="mx-auto max-w-7xl px-6">
-    <h2 class="font-heading text-3xl font-bold text-white lg:text-4xl" data-animate>
+    <h2 class="font-heading text-3xl font-bold text-ink-50 lg:text-4xl" data-animate>
       Why Mozek?
     </h2>
     <div class="mt-12 grid gap-6 sm:grid-cols-2">
       {cards.map((c, i) => (
         <div
-          class="card bg-base-200 border border-white/[0.06]"
+          class="card bg-base-200 border border-ink-700/60"
           data-animate
           data-delay={String(i + 1)}
         >
           <div class="card-body">
-            <h3 class="card-title font-heading text-white">{c.title}</h3>
-            <p class="text-sm leading-relaxed text-stone-400">{c.text}</p>
+            <h3 class="card-title font-heading text-ink-50">{c.title}</h3>
+            <p class="text-sm leading-relaxed text-ink-400">{c.text}</p>
           </div>
         </div>
       ))}
