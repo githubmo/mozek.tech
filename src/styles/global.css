@@ -7,30 +7,31 @@
   prefersdark: false;
   color-scheme: dark;
 
-  --color-base-100: oklch(19.98% 0.0403 258.3);
-  --color-base-200: oklch(23.22% 0.0461 261.7);
-  --color-base-300: oklch(27.96% 0.0474 258.7);
-  --color-base-content: oklch(84% 0.02 255);
+  /* Atelier palette — warm dark, terracotta accent */
+  --color-base-100: oklch(12% 0.005 60);     /* #0F0D0B warm black */
+  --color-base-200: oklch(18% 0.008 55);     /* #1A1612 surface */
+  --color-base-300: oklch(23% 0.010 55);     /* #221D18 elevated */
+  --color-base-content: oklch(95% 0.013 80); /* #F5EFE6 cream */
 
-  --color-primary: oklch(82.52% 0.1511 178.7);
-  --color-primary-content: oklch(19.98% 0.0403 258.3);
+  --color-primary: oklch(68% 0.14 35);       /* #E07856 terracotta */
+  --color-primary-content: oklch(12% 0.005 60);
 
-  --color-secondary: oklch(73.42% 0.1345 178.7);
-  --color-secondary-content: oklch(19.98% 0.0403 258.3);
+  --color-secondary: oklch(73% 0.07 80);     /* #C8A878 warm tan */
+  --color-secondary-content: oklch(12% 0.005 60);
 
-  --color-accent: oklch(82.52% 0.1511 178.7);
-  --color-accent-content: oklch(19.98% 0.0403 258.3);
+  --color-accent: oklch(68% 0.14 35);        /* terracotta */
+  --color-accent-content: oklch(12% 0.005 60);
 
-  --color-neutral: oklch(27.96% 0.0474 258.7);
-  --color-neutral-content: oklch(84% 0.02 255);
+  --color-neutral: oklch(23% 0.010 55);
+  --color-neutral-content: oklch(95% 0.013 80);
 
-  --color-info: oklch(70% 0.15 240);
-  --color-info-content: oklch(98% 0.01 240);
-  --color-success: oklch(72% 0.19 155);
-  --color-success-content: oklch(98% 0.01 155);
-  --color-warning: oklch(82% 0.18 80);
-  --color-warning-content: oklch(20% 0.05 80);
-  --color-error: oklch(65% 0.25 25);
+  --color-info: oklch(70% 0.10 220);
+  --color-info-content: oklch(98% 0.01 220);
+  --color-success: oklch(70% 0.13 145);
+  --color-success-content: oklch(98% 0.01 145);
+  --color-warning: oklch(80% 0.15 75);
+  --color-warning-content: oklch(20% 0.05 75);
+  --color-error: oklch(62% 0.20 25);
   --color-error-content: oklch(98% 0.01 25);
 
   --radius-selector: 9999px;
@@ -46,11 +47,6 @@
 }
 
 @theme {
-  --color-navy: #0a1628;
-  --color-navy-light: #111d33;
-  --color-navy-lighter: #1a2940;
-  --color-teal: #00e5c7;
-  --color-teal-dark: #00c4aa;
   --font-heading: "Outfit", sans-serif;
   --font-body: "Inter", sans-serif;
 }

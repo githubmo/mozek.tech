@@ -11,7 +11,7 @@ const links = [
 ---
 
 <header
-  class="fixed inset-x-0 top-0 z-50 bg-navy/80 backdrop-blur-xl border-b border-white/[0.06]"
+  class="fixed inset-x-0 top-0 z-50 bg-base-100/80 backdrop-blur-xl border-b border-white/[0.06]"
 >
   <div
     class="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6"
@@ -32,7 +32,7 @@ const links = [
             href={l.href}
             class:list={[
               "text-sm font-medium transition-colors duration-200",
-              path === l.href ? "text-primary" : "text-slate-400 hover:text-white",
+              path === l.href ? "text-primary" : "text-stone-400 hover:text-white",
             ]}
           >
             {l.name}
@@ -75,7 +75,7 @@ const links = [
   <!-- Mobile drawer -->
   <div
     id="mobile-drawer"
-    class="fixed inset-0 z-[55] flex translate-x-full flex-col bg-navy px-8 pt-28 transition-transform duration-300 ease-in-out lg:hidden"
+    class="fixed inset-0 z-[55] flex translate-x-full flex-col bg-base-100 px-8 pt-28 transition-transform duration-300 ease-in-out lg:hidden"
   >
     {
       links.map((l) => (
