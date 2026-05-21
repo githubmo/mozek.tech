@@ -21,61 +21,61 @@ const whyCards = [
   },
 ];
 
-const courses: { title: string; bullets: string[]; icons: { slug: string; color: string }[] }[] = [
+const courses: { title: string; bullets: string[]; icons: { slug: string; color: string; name: string }[] }[] = [
   {
     title: "Python for Data Engineering",
     icons: [
-      { slug: "python", color: "#3776AB" },
-      { slug: "pandas", color: "#EAEFF5" },
-      { slug: "polars", color: "#EAEFF5" },
+      { slug: "python", color: "#3776AB", name: "Python" },
+      { slug: "pandas", color: "#EAEFF5", name: "pandas" },
+      { slug: "polars", color: "#EAEFF5", name: "Polars" },
     ],
     bullets: ["Data pipelines with pandas & polars", "Testing, packaging, and CI", "Building production-quality ETL scripts"],
   },
   {
     title: "Cloud Platforms (AWS / Azure / GCP)",
     icons: [
-      { slug: "amazonwebservices", color: "#FF9900" },
-      { slug: "microsoftazure", color: "#0078D4" },
-      { slug: "googlecloud", color: "#4285F4" },
-      { slug: "terraform", color: "#7B42BC" },
+      { slug: "amazonwebservices", color: "#FF9900", name: "AWS" },
+      { slug: "microsoftazure", color: "#0078D4", name: "Azure" },
+      { slug: "googlecloud", color: "#4285F4", name: "Google Cloud" },
+      { slug: "terraform", color: "#7B42BC", name: "Terraform" },
     ],
     bullets: ["Infrastructure-as-Code with Terraform", "Networking and security fundamentals", "Managed data & ML services"],
   },
   {
     title: "Containers & Orchestration",
     icons: [
-      { slug: "docker", color: "#2496ED" },
-      { slug: "kubernetes", color: "#326CE5" },
-      { slug: "helm", color: "#EAEFF5" },
-      { slug: "pulumi", color: "#8A3391" },
+      { slug: "docker", color: "#2496ED", name: "Docker" },
+      { slug: "kubernetes", color: "#326CE5", name: "Kubernetes" },
+      { slug: "helm", color: "#EAEFF5", name: "Helm" },
+      { slug: "pulumi", color: "#8A3391", name: "Pulumi" },
     ],
     bullets: ["Docker fundamentals & best practices", "Kubernetes deployments & services", "Helm charts and GitOps workflows"],
   },
   {
     title: "Data Pipelines & Streaming",
     icons: [
-      { slug: "apachekafka", color: "#EAEFF5" },
-      { slug: "apachespark", color: "#E25A1C" },
-      { slug: "apacheairflow", color: "#017CEE" },
-      { slug: "dbt", color: "#FF694A" },
+      { slug: "apachekafka", color: "#EAEFF5", name: "Apache Kafka" },
+      { slug: "apachespark", color: "#E25A1C", name: "Apache Spark" },
+      { slug: "apacheairflow", color: "#017CEE", name: "Apache Airflow" },
+      { slug: "dbt", color: "#FF694A", name: "dbt" },
     ],
     bullets: ["Kafka, Spark, Airflow, dbt", "Real-time vs batch architectures", "Data quality and observability"],
   },
   {
     title: "Machine Learning Fundamentals",
     icons: [
-      { slug: "scikitlearn", color: "#F7931E" },
-      { slug: "jupyter", color: "#F37626" },
-      { slug: "numpy", color: "#EAEFF5" },
+      { slug: "scikitlearn", color: "#F7931E", name: "scikit-learn" },
+      { slug: "jupyter", color: "#F37626", name: "Jupyter" },
+      { slug: "numpy", color: "#EAEFF5", name: "NumPy" },
     ],
     bullets: ["scikit-learn & model evaluation", "Feature engineering strategies", "From notebook to reproducible pipeline"],
   },
   {
     title: "MLOps & Production ML",
     icons: [
-      { slug: "mlflow", color: "#0194E2" },
-      { slug: "weightsandbiases", color: "#FFBE00" },
-      { slug: "githubactions", color: "#2088FF" },
+      { slug: "mlflow", color: "#0194E2", name: "MLflow" },
+      { slug: "weightsandbiases", color: "#FFBE00", name: "Weights & Biases" },
+      { slug: "githubactions", color: "#2088FF", name: "GitHub Actions" },
     ],
     bullets: ["Model serving & inference APIs", "Experiment tracking (MLflow, W&B)", "CI/CD for ML pipelines"],
   },
@@ -144,11 +144,13 @@ const steps = [
             <div class="card-body">
               <div class="flex items-center gap-3">
                 {c.icons.map((ic) => (
-                  <Icon
-                    name={`simple-icons:${ic.slug}`}
-                    style={{ color: ic.color }}
-                    class="h-8 w-8 shrink-0"
-                  />
+                  <span class="tooltip" data-tip={ic.name}>
+                    <Icon
+                      name={`simple-icons:${ic.slug}`}
+                      style={{ color: ic.color }}
+                      class="h-8 w-8 shrink-0"
+                    />
+                  </span>
                 ))}
               </div>
               <h3 class="card-title font-heading text-ink-50 mt-2">{c.title}</h3>
