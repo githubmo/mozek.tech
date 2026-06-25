@@ -1,210 +1,155 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import CTA from '../components/CTA.astro';
-import { Icon } from 'astro-icon/components';
+import Layout from "../layouts/Layout.astro";
+import CTA from "../components/CTA.astro";
+import { Icon } from "astro-icon/components";
 
-const whyCards = [
-  {
-    icon: "&#9881;",
-    title: "Hands-On, Practical Learning",
-    text: "No slides-only lectures. Every course includes real projects, coding labs, and exercises drawn from production scenarios your teams will actually encounter.",
-  },
-  {
-    icon: "&#9878;",
-    title: "Tailored to Your Stack",
-    text: "Courses are customised to your existing technology environment so engineers can apply what they learn from day one — not adapt generic examples.",
-  },
-  {
-    icon: "&#9733;",
-    title: "Delivered by Practitioners",
-    text: "All of our trainers are active engineers who build and operate data and ML systems daily. They teach from experience, not textbooks.",
-  },
-];
-
-const courses: { title: string; bullets: string[]; icons: { slug: string; color: string; name: string }[] }[] = [
+// Monochrome icons (inherit currentColor → ink-200). Real catalogue carried over
+// from the original site. Add `style={{ color: ic.color }}` to restore brand colours.
+const courses: { title: string; icons: { slug: string; name: string }[]; bullets: string[] }[] = [
   {
     title: "Python for Data Engineering",
     icons: [
-      { slug: "python", color: "#3776AB", name: "Python" },
-      { slug: "pandas", color: "#EAEFF5", name: "pandas" },
-      { slug: "polars", color: "#EAEFF5", name: "Polars" },
+      { slug: "python", name: "Python" },
+      { slug: "pandas", name: "pandas" },
+      { slug: "polars", name: "Polars" },
     ],
     bullets: ["Data pipelines with pandas & polars", "Testing, packaging, and CI", "Building production-quality ETL scripts"],
   },
   {
     title: "Cloud Platforms (AWS / Azure / GCP)",
     icons: [
-      { slug: "amazonwebservices", color: "#FF9900", name: "AWS" },
-      { slug: "microsoftazure", color: "#0078D4", name: "Azure" },
-      { slug: "googlecloud", color: "#4285F4", name: "Google Cloud" },
-      { slug: "terraform", color: "#7B42BC", name: "Terraform" },
+      { slug: "amazonwebservices", name: "AWS" },
+      { slug: "microsoftazure", name: "Azure" },
+      { slug: "googlecloud", name: "Google Cloud" },
+      { slug: "terraform", name: "Terraform" },
     ],
     bullets: ["Infrastructure-as-Code with Terraform", "Networking and security fundamentals", "Managed data & ML services"],
   },
   {
     title: "Containers & Orchestration",
     icons: [
-      { slug: "docker", color: "#2496ED", name: "Docker" },
-      { slug: "kubernetes", color: "#326CE5", name: "Kubernetes" },
-      { slug: "helm", color: "#EAEFF5", name: "Helm" },
-      { slug: "pulumi", color: "#8A3391", name: "Pulumi" },
+      { slug: "docker", name: "Docker" },
+      { slug: "kubernetes", name: "Kubernetes" },
+      { slug: "helm", name: "Helm" },
+      { slug: "pulumi", name: "Pulumi" },
     ],
     bullets: ["Docker fundamentals & best practices", "Kubernetes deployments & services", "Helm charts and GitOps workflows"],
   },
   {
     title: "Data Pipelines & Streaming",
     icons: [
-      { slug: "apachekafka", color: "#EAEFF5", name: "Apache Kafka" },
-      { slug: "apachespark", color: "#E25A1C", name: "Apache Spark" },
-      { slug: "apacheairflow", color: "#017CEE", name: "Apache Airflow" },
-      { slug: "dbt", color: "#FF694A", name: "dbt" },
+      { slug: "apachekafka", name: "Apache Kafka" },
+      { slug: "apachespark", name: "Apache Spark" },
+      { slug: "apacheairflow", name: "Apache Airflow" },
+      { slug: "dbt", name: "dbt" },
     ],
     bullets: ["Kafka, Spark, Airflow, dbt", "Real-time vs batch architectures", "Data quality and observability"],
   },
   {
     title: "Machine Learning Fundamentals",
     icons: [
-      { slug: "scikitlearn", color: "#F7931E", name: "scikit-learn" },
-      { slug: "jupyter", color: "#F37626", name: "Jupyter" },
-      { slug: "numpy", color: "#EAEFF5", name: "NumPy" },
+      { slug: "scikitlearn", name: "scikit-learn" },
+      { slug: "jupyter", name: "Jupyter" },
+      { slug: "numpy", name: "NumPy" },
     ],
     bullets: ["scikit-learn & model evaluation", "Feature engineering strategies", "From notebook to reproducible pipeline"],
   },
   {
     title: "MLOps & Production ML",
     icons: [
-      { slug: "mlflow", color: "#0194E2", name: "MLflow" },
-      { slug: "weightsandbiases", color: "#FFBE00", name: "Weights & Biases" },
-      { slug: "githubactions", color: "#2088FF", name: "GitHub Actions" },
+      { slug: "mlflow", name: "MLflow" },
+      { slug: "githubactions", name: "GitHub Actions" },
+      { slug: "grafana", name: "Grafana" },
     ],
     bullets: ["Model serving & inference APIs", "Experiment tracking (MLflow, W&B)", "CI/CD for ML pipelines"],
   },
 ];
 
 const steps = [
-  { num: "1", title: "Discovery Call", text: "We discuss your team's current skill levels, tech stack, and learning objectives." },
-  { num: "2", title: "Custom Curriculum", text: "We design a tailored programme with relevant exercises and real-world scenarios." },
-  { num: "3", title: "Delivery & Follow-Up", text: "Hands-on sessions delivered on-site or remotely, with post-training support and resources." },
+  { num: "01", title: "Discovery call", text: "We discuss your team's current skill levels, tech stack, and learning objectives." },
+  { num: "02", title: "Custom curriculum", text: "We design a tailored programme with relevant exercises and real-world scenarios." },
+  { num: "03", title: "Delivery & follow-up", text: "Hands-on sessions delivered on-site or remotely, with post-training support and resources." },
 ];
 ---
 
 <Layout title="Training — Mozek Technologies">
-
   <!-- ══════════ HERO ══════════ -->
-  <section class="relative overflow-hidden pb-20 pt-16 lg:pb-28 lg:pt-24">
-    <div class="pointer-events-none absolute left-0 top-0 h-[600px] w-[600px] -translate-x-1/3 -translate-y-1/4 rounded-full bg-accent/[0.06] blur-[120px]"></div>
-
-    <div class="relative mx-auto max-w-7xl px-6">
-      <h1 class="animate-on-load max-w-3xl font-heading text-4xl font-extrabold leading-tight text-ink-50 lg:text-6xl">
-        Expert-Led Technical Training
-      </h1>
-      <p class="animate-on-load-d1 mt-6 max-w-2xl text-lg leading-relaxed text-ink-400">
-        Mozek Technologies delivers hands-on training programmes designed to upskill your engineering teams in modern cloud, data, and AI technologies. Whether you are onboarding new hires or deepening senior expertise, our courses are tailored to your organisation's needs.
-      </p>
+  <section class="relative overflow-hidden px-6 pb-12 pt-16 lg:pt-24">
+    <div
+      class="bg-dotgrid pointer-events-none absolute inset-0"
+      style="-webkit-mask-image:radial-gradient(ellipse 75% 70% at 25% 20%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse 75% 70% at 25% 20%,#000 0%,transparent 75%);"
+    >
     </div>
-  </section>
-
-  <!-- ══════════ WHY TRAIN ══════════ -->
-  <section class="bg-base-200 py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-6">
-      <h2 class="font-heading text-3xl font-bold text-ink-50 lg:text-4xl" data-animate>
-        Why Train with Mozek?
-      </h2>
-      <div class="mt-12 grid gap-8 md:grid-cols-3">
-        {whyCards.map((c, i) => (
-          <div
-            class="card bg-base-100 border border-ink-700/60"
-            data-animate
-            data-delay={String(i + 1)}
-          >
-            <div class="card-body">
-              <span class="text-3xl" set:html={c.icon} />
-              <h3 class="card-title font-heading text-ink-50">{c.title}</h3>
-              <p class="text-sm leading-relaxed text-ink-400">{c.text}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div class="relative mx-auto max-w-7xl">
+      <span class="animate-on-load font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// training</span>
+      <h1 class="animate-on-load-d1 mt-5 max-w-3xl font-heading text-4xl font-bold leading-[1.03] tracking-tight text-ink-50 lg:text-7xl">
+        Upskill your team on the modern stack.
+      </h1>
+      <p class="animate-on-load-d2 mt-6 max-w-2xl text-lg leading-relaxed text-ink-400">
+        Expert-led, hands-on programmes taught by the same engineers who build
+        production systems. Tailored to your stack and delivered on-site or remote.
+      </p>
     </div>
   </section>
 
   <!-- ══════════ CATALOGUE ══════════ -->
-  <section class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-6">
-      <h2 class="font-heading text-3xl font-bold text-ink-50 lg:text-4xl" data-animate>
-        Our Training Catalogue
-      </h2>
-      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {courses.map((c, i) => (
+  <section class="mx-auto max-w-7xl px-6 pb-20 lg:pb-28">
+    <div class="mb-9 max-w-2xl" data-animate>
+      <span class="font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// course catalogue</span>
+      <h2 class="mt-4 font-heading text-2xl font-bold tracking-tight text-ink-50 lg:text-4xl">Programmes we deliver.</h2>
+    </div>
+    <div class="grid gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
+      {
+        courses.map((c, i) => (
           <div
-            class="card bg-base-200 border border-ink-700/60"
+            class="flex flex-col rounded-2xl border border-ink-700/60 bg-base-200 p-7 transition-colors hover:border-primary"
             data-animate
             data-delay={String(Math.min(i + 1, 6))}
           >
-            <div class="card-body">
-              <div class="flex items-center gap-3">
-                {c.icons.map((ic) => (
-                  <span class="tooltip" data-tip={ic.name}>
-                    <Icon
-                      name={`simple-icons:${ic.slug}`}
-                      style={{ color: ic.color }}
-                      class="h-8 w-8 shrink-0"
-                    />
-                  </span>
-                ))}
-              </div>
-              <h3 class="card-title font-heading text-ink-50 mt-2">{c.title}</h3>
-              <ul class="mt-1 space-y-2">
-                {c.bullets.map((b) => (
-                  <li class="flex items-start gap-2 text-sm text-ink-400">
-                    <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60"></span>
-                    {b}
-                  </li>
-                ))}
-              </ul>
+            <div class="flex flex-wrap gap-2">
+              {c.icons.map((ic) => (
+                <span
+                  class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-ink-700/60 bg-white/[0.025]"
+                  title={ic.name}
+                >
+                  <Icon name={`simple-icons:${ic.slug}`} aria-label={ic.name} class="h-[18px] w-[18px] text-ink-200" />
+                </span>
+              ))}
             </div>
+            <h3 class="mt-5 font-heading text-xl font-semibold text-ink-50">{c.title}</h3>
+            <ul class="mt-4 flex flex-col gap-2.5">
+              {c.bullets.map((b) => (
+                <li class="flex gap-2.5 text-[14px] leading-relaxed text-ink-300">
+                  <span class="font-mono text-primary">+</span>{b}
+                </li>
+              ))}
+            </ul>
           </div>
-        ))}
-      </div>
+        ))
+      }
     </div>
   </section>
 
   <!-- ══════════ HOW IT WORKS ══════════ -->
-  <section class="bg-base-200 py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-6">
-      <h2 class="text-center font-heading text-3xl font-bold text-ink-50 lg:text-4xl" data-animate>
-        How It Works
-      </h2>
-      <div class="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-3">
-        {steps.map((s, i) => (
-          <div class="text-center" data-animate data-delay={String(i + 1)}>
-            <span class="inline-flex h-14 w-14 items-center justify-center rounded-full border border-primary/20 bg-primary/[0.08] font-heading text-xl font-bold text-primary">
-              {s.num}
-            </span>
-            <h3 class="mt-4 font-heading text-lg font-semibold text-ink-50">{s.title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-ink-400">{s.text}</p>
-          </div>
-        ))}
+  <section class="border-y border-ink-700/60 bg-base-200">
+    <div class="mx-auto max-w-7xl px-6 py-20 lg:py-24">
+      <div class="max-w-xl" data-animate>
+        <span class="font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// how it works</span>
+        <h2 class="mt-4 font-heading text-2xl font-bold tracking-tight text-ink-50 lg:text-4xl">Tailored to your team, start to finish.</h2>
+      </div>
+      <div class="mt-9 grid gap-[18px] sm:grid-cols-3">
+        {
+          steps.map((s, i) => (
+            <div class="rounded-2xl border border-ink-700/60 bg-base-100 p-7" data-animate data-delay={String(i + 1)}>
+              <span class="font-mono text-sm text-primary">{s.num}</span>
+              <h3 class="mt-4 font-heading text-xl font-semibold text-ink-50">{s.title}</h3>
+              <p class="mt-3 text-[14.5px] leading-relaxed text-ink-400">{s.text}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <!-- ══════════ MINI CTA ══════════ -->
-  <section class="py-20 lg:py-28">
-    <div class="mx-auto max-w-3xl px-6 text-center" data-animate>
-      <h2 class="font-heading text-3xl font-bold text-ink-50 lg:text-4xl">
-        Ready to upskill your team?
-      </h2>
-      <p class="mt-4 text-ink-400">
-        Let's design a training programme tailored to your organisation.
-      </p>
-      <a href="/contact" class="btn btn-primary mt-8">
-        Get in Touch &rarr;
-      </a>
-    </div>
-  </section>
-
-  <!-- ══════════ CTA ══════════ -->
-  <CTA />
-
+  <CTA title="Build a programme for your team." subtitle="Tell us your stack and goals — we'll tailor the curriculum." label="Enquire about training" />
 </Layout>

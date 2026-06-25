@@ -1,25 +1,40 @@
 ---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  label?: string;
+  href?: string;
+}
 
+const {
+  title = "Accelerate your data & AI capabilities.",
+  subtitle = "Schedule a 30-minute consultation with our team.",
+  label = "Get in touch",
+  href = "/contact",
+} = Astro.props;
 ---
 
-<section class="relative overflow-hidden bg-base-200 py-20 lg:py-28">
-  <!-- Decorative gradient orbs -->
+<section class="mx-auto max-w-7xl px-6 py-24 lg:py-32">
   <div
-    class="pointer-events-none absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-accent/[0.07] blur-[100px]"
-  ></div>
-  <div
-    class="pointer-events-none absolute -bottom-32 -right-32 h-[400px] w-[400px] rounded-full bg-accent/[0.05] blur-[100px]"
-  ></div>
-
-  <div class="relative mx-auto max-w-3xl px-6 text-center" data-animate>
-    <h2 class="font-heading text-3xl font-bold text-ink-50 lg:text-4xl">
-      Accelerate your data and AI capabilities
-    </h2>
-    <p class="mx-auto mt-4 max-w-xl text-ink-400">
-      Schedule a 30-minute consultation with our team.
-    </p>
-    <a href="/contact" class="btn btn-outline btn-primary mt-8">
-      Contact &rarr;
-    </a>
+    class="relative overflow-hidden rounded-[1.4rem] border border-ink-700/60 bg-base-200 px-8 py-14 text-center lg:px-16 lg:py-20"
+    data-animate
+  >
+    <div
+      class="bg-dotgrid pointer-events-none absolute inset-0"
+      style="-webkit-mask-image:radial-gradient(ellipse 70% 90% at 50% 0%,#000,transparent 70%);mask-image:radial-gradient(ellipse 70% 90% at 50% 0%,#000,transparent 70%);"
+    >
+    </div>
+    <div class="relative">
+      <h2 class="mx-auto max-w-2xl font-heading text-3xl font-bold leading-[1.06] tracking-tight text-ink-50 lg:text-5xl">
+        {title}
+      </h2>
+      <p class="mx-auto mt-5 max-w-md text-lg text-ink-400">{subtitle}</p>
+      <a
+        href={href}
+        class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 font-semibold text-primary-content transition-transform hover:-translate-y-0.5"
+      >
+        {label} <span class="font-mono">&rarr;</span>
+      </a>
+    </div>
   </div>
 </section>

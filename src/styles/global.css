@@ -2,34 +2,41 @@
 @plugin "daisyui";
 
 /*
- * Mozek palette — Radix-style tonal system.
- * One neutral scale (ink, cool slate-navy) used for every non-accent surface:
- * app bg, surfaces, borders, dividers, and all text levels.
- * Single warm accent (terracotta) is the only chromatic colour — that's
- * what makes it carry weight.
+ * Mozek palette — rebranded ("mockup" identity).
+ * One cool neutral "ink" scale (slate-navy, hue ~252) for every surface and
+ * text level, plus a single violet accent — the only chromatic colour, so it
+ * carries weight. Surfaces sit one step deeper than before for a near-black feel.
+ *
+ * ░░ ACCENT SWAP ░░  The accent is defined in exactly two places below
+ * (the --color-accent-* tokens and the daisyUI --color-primary/accent/secondary).
+ * Current: dark gold (hue ~86). To switch to violet instead, replace the gold
+ * values with:
+ *   accent-500 oklch(70% 0.16 292) · accent-600 oklch(62% 0.15 292) · accent-300 oklch(80% 0.11 292)
+ * and set primary/accent to the 500 value, secondary to the 600 value.
  */
 
 @theme {
-  --font-heading: "Outfit", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
   /* Ink scale — perceptually spaced in OKLCH, hue ~252, chroma ~0.03 */
-  --color-ink-50:  oklch(96% 0.012 252);  /* #EAEFF5 headings */
-  --color-ink-100: oklch(89% 0.018 252);  /* #D3DCE8 strong text */
-  --color-ink-200: oklch(78% 0.025 252);  /* #B0BDCF body text */
-  --color-ink-300: oklch(66% 0.028 252);  /* #8993AC body secondary */
-  --color-ink-400: oklch(54% 0.030 252);  /* #5F6E8C muted text */
-  --color-ink-500: oklch(42% 0.030 252);  /* #44537A subtle text / icons */
-  --color-ink-600: oklch(33% 0.035 252);  /* #2E3D5E hover border */
-  --color-ink-700: oklch(26% 0.038 252);  /* #1F2C49 border */
-  --color-ink-800: oklch(20% 0.035 252);  /* #131D32 elevated surface */
-  --color-ink-900: oklch(16% 0.030 252);  /* #0B1424 surface */
-  --color-ink-950: oklch(12% 0.022 252);  /* #060D1A deepest bg */
+  --color-ink-50:  oklch(96% 0.012 252);
+  --color-ink-100: oklch(89% 0.018 252);
+  --color-ink-200: oklch(78% 0.025 252);
+  --color-ink-300: oklch(66% 0.028 252);
+  --color-ink-400: oklch(54% 0.030 252);
+  --color-ink-500: oklch(42% 0.030 252);
+  --color-ink-600: oklch(33% 0.035 252);
+  --color-ink-700: oklch(26% 0.038 252);
+  --color-ink-800: oklch(20% 0.035 252);
+  --color-ink-900: oklch(16% 0.030 252);
+  --color-ink-950: oklch(12% 0.022 252);
 
-  /* Accent — terracotta, the only warm hue */
-  --color-accent-500: oklch(68% 0.14 35);  /* #E07856 primary */
-  --color-accent-600: oklch(60% 0.13 33);  /* #C46446 hover/pressed */
-  --color-accent-300: oklch(78% 0.10 38);  /* #EAA68A tint */
+  /* Accent — dark gold, the only chromatic hue */
+  --color-accent-500: oklch(72% 0.13 86);  /* primary */
+  --color-accent-600: oklch(64% 0.12 84);  /* hover/pressed */
+  --color-accent-300: oklch(82% 0.10 88);  /* tint */
 }
 
 @plugin "daisyui/theme" {
@@ -38,38 +45,36 @@
   prefersdark: false;
   color-scheme: dark;
 
-  /* Surfaces map to ink scale */
-  --color-base-100: oklch(16% 0.030 252);    /* ink-900 — app bg */
-  --color-base-200: oklch(20% 0.035 252);    /* ink-800 — surface */
-  --color-base-300: oklch(26% 0.038 252);    /* ink-700 — elevated */
-  --color-base-content: oklch(78% 0.025 252);/* ink-200 — body text */
+  /* Surfaces — one step deeper than the ink scale's midpoint */
+  --color-base-100: oklch(12% 0.022 252);     /* ink-950 — deepest app bg */
+  --color-base-200: oklch(16% 0.030 252);     /* ink-900 — surface / panels */
+  --color-base-300: oklch(20% 0.035 252);     /* ink-800 — elevated */
+  --color-base-content: oklch(78% 0.025 252); /* ink-200 — body text */
 
   /* Accent */
-  --color-primary: oklch(68% 0.14 35);
-  --color-primary-content: oklch(16% 0.030 252);
-  --color-accent: oklch(68% 0.14 35);
-  --color-accent-content: oklch(16% 0.030 252);
+  --color-primary: oklch(72% 0.13 86);
+  --color-primary-content: oklch(12% 0.022 252);
+  --color-accent: oklch(72% 0.13 86);
+  --color-accent-content: oklch(12% 0.022 252);
 
-  /* Secondary — desaturated step of accent, used sparingly */
-  --color-secondary: oklch(60% 0.13 33);
+  /* Secondary — desaturated step of accent */
+  --color-secondary: oklch(64% 0.12 84);
   --color-secondary-content: oklch(96% 0.012 252);
 
-  /* Neutral — used by DaisyUI for chips/badges; pulled from ink scale */
-  --color-neutral: oklch(26% 0.038 252);
+  --color-neutral: oklch(20% 0.035 252);
   --color-neutral-content: oklch(89% 0.018 252);
 
-  /* Status — tuned so chroma matches accent's punch */
   --color-info: oklch(72% 0.12 230);
-  --color-info-content: oklch(16% 0.030 252);
+  --color-info-content: oklch(12% 0.022 252);
   --color-success: oklch(72% 0.14 160);
-  --color-success-content: oklch(16% 0.030 252);
+  --color-success-content: oklch(12% 0.022 252);
   --color-warning: oklch(80% 0.14 75);
-  --color-warning-content: oklch(16% 0.030 252);
+  --color-warning-content: oklch(12% 0.022 252);
   --color-error: oklch(64% 0.20 25);
   --color-error-content: oklch(96% 0.012 252);
 
-  --radius-selector: 9999px;
-  --radius-field: 9999px;
+  --radius-selector: 9999px;   /* badges / chips stay pill */
+  --radius-field: 0.625rem;    /* buttons & inputs — rounded-lg, not pill */
   --radius-box: 1rem;
 
   --size-selector: 0.25rem;
@@ -82,6 +87,17 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-primary-content);
+}
+
+/* Reusable dot-grid texture (apply a radial mask inline where used) */
+.bg-dotgrid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
 /* Hero entrance — plays on page load */
@@ -104,12 +120,12 @@ html {
 [data-animate="fade"] { transform: none; }
 [data-animate].is-visible { opacity: 1; transform: translateY(0); }
 
-[data-animate][data-delay="1"] { transition-delay: 0.1s; }
-[data-animate][data-delay="2"] { transition-delay: 0.2s; }
-[data-animate][data-delay="3"] { transition-delay: 0.3s; }
-[data-animate][data-delay="4"] { transition-delay: 0.4s; }
-[data-animate][data-delay="5"] { transition-delay: 0.5s; }
-[data-animate][data-delay="6"] { transition-delay: 0.6s; }
+[data-animate][data-delay="1"] { transition-delay: 0.08s; }
+[data-animate][data-delay="2"] { transition-delay: 0.16s; }
+[data-animate][data-delay="3"] { transition-delay: 0.24s; }
+[data-animate][data-delay="4"] { transition-delay: 0.32s; }
+[data-animate][data-delay="5"] { transition-delay: 0.40s; }
+[data-animate][data-delay="6"] { transition-delay: 0.48s; }
 
 /* Infinite marquee for tech logos */
 @keyframes marquee {
@@ -117,8 +133,18 @@ html {
   100% { transform: translateX(-50%); }
 }
 .animate-marquee {
-  animation: marquee 45s linear infinite;
+  animation: marquee 60s linear infinite;
 }
-.animate-marquee:hover {
+.animate-marquee.reverse {
+  animation-direction: reverse;
+}
+.marquee-row:hover .animate-marquee {
   animation-play-state: paused;
 }
+
+/* Status dot blink (hero panel) */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+.animate-blink { animation: blink 1.8s ease-in-out infinite; }

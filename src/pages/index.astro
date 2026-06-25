@@ -1,152 +1,94 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HeroStatus from "../components/HeroStatus.astro";
 import TechLogos from "../components/TechLogos.astro";
 import CTA from "../components/CTA.astro";
-import BrandImage from "../components/BrandImage.astro";
+
+const principles = [
+  { num: "01", title: "Outcome-driven", desc: "Every engagement starts from the business result you need." },
+  { num: "02", title: "Production-grade", desc: "Architecturally sound systems built to run, not just to demo." },
+  { num: "03", title: "Senior & hands-on", desc: "You work directly with the engineers doing the work." },
+];
+
+const services = [
+  { num: "01", title: "Consulting", desc: "End-to-end data strategy and hands-on engineering to accelerate your cloud and data initiatives.", tag: "strategy · delivery" },
+  { num: "02", title: "Training", desc: "Expert-led programmes that upskill your engineering teams in modern cloud, data and AI technologies.", tag: "workshops · cohorts" },
+  { num: "03", title: "Architecture Review", desc: "Independent assessment of your existing systems to close gaps, cut cost and improve resilience.", tag: "audit · resilience" },
+  { num: "04", title: "Cloud Native Solutions", desc: "Bespoke cloud-native development — from IoT ingestion to real-time analytics and ML-powered products.", tag: "build · scale" },
+];
+
+const stats = [
+  { value: "3×", label: "faster Greeks P&L attribution at a leading US variable-annuity insurer" },
+  { value: "99.98%", label: "uptime SLAs met" },
+  { value: "100%", label: "on-time delivery" },
+];
 ---
 
 <Layout title="Mozek Technologies — Data, Cloud & AI Engineering">
   <!-- ══════════ HERO ══════════ -->
-  <section class="relative overflow-hidden pb-20 pt-16 lg:pb-32 lg:pt-24">
-    <!-- Decorative glow -->
+  <section class="relative overflow-hidden px-6 pb-20 pt-16 lg:pb-28 lg:pt-28">
     <div
-      class="pointer-events-none absolute right-0 top-0 h-[700px] w-[700px] translate-x-1/3 -translate-y-1/4 rounded-full bg-accent/[0.06] blur-[120px]"
+      class="bg-dotgrid pointer-events-none absolute inset-0"
+      style="-webkit-mask-image:radial-gradient(ellipse 80% 70% at 30% 25%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse 80% 70% at 30% 25%,#000 0%,transparent 75%);"
     >
     </div>
+    <div class="relative mx-auto flex max-w-7xl flex-wrap items-center gap-x-16 gap-y-12">
+      <div class="min-w-[300px] flex-1">
+        <span class="animate-on-load font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// reliability at scale</span>
+        <h1 class="animate-on-load-d1 mt-5 max-w-3xl font-heading text-5xl font-bold leading-[1.02] tracking-tight text-ink-50 lg:text-7xl">
+          Data &amp; AI infrastructure that holds up in <span class="text-primary">production</span>.
+        </h1>
+        <p class="animate-on-load-d2 mt-6 max-w-xl text-lg leading-relaxed text-ink-400 lg:text-xl">
+          A small team of senior engineers specialising in cloud platforms, data
+          engineering, machine learning and AI. We turn complex data challenges
+          into competitive advantages.
+        </p>
+        <div class="animate-on-load-d3 mt-9 flex flex-wrap gap-3.5">
+          <a href="/contact" class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3.5 font-semibold text-primary-content transition-transform hover:-translate-y-0.5">
+            Book a consultation <span class="font-mono">&rarr;</span>
+          </a>
+          <a href="/services" class="inline-flex items-center gap-2 rounded-lg border border-ink-600 px-6 py-3.5 font-medium text-ink-50 transition-colors hover:border-primary hover:text-primary">
+            Explore services
+          </a>
+        </div>
+        <p class="animate-on-load-d3 mt-8 font-mono text-xs tracking-wide text-ink-600">// from greenfield builds to modernising legacy pipelines</p>
+      </div>
 
-    <div class="relative mx-auto max-w-7xl px-6">
-      <span
-        class="animate-on-load badge badge-outline badge-primary badge-lg"
-      >
-        Reliability at Scale
-      </span>
-
-      <h1
-        class="animate-on-load-d1 mt-6 max-w-3xl font-heading text-5xl font-extrabold leading-[1.08] text-ink-50 lg:text-7xl"
-      >
-        Mozek Technologies
-      </h1>
-
-      <p
-        class="animate-on-load-d2 mt-6 max-w-2xl text-lg leading-relaxed text-ink-400 lg:text-xl"
-      >
-        A small team of senior engineers specialising in cloud platforms, data
-        engineering, machine learning and AI.
-      </p>
+      <div class="animate-on-load-d2 min-w-[300px] flex-1">
+        <HeroStatus />
+      </div>
     </div>
   </section>
 
   <!-- ══════════ TECH LOGOS ══════════ -->
   <TechLogos />
 
-  <!-- ══════════ PARTNERS ══════════ -->
-  <!-- <section class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-6">
-      <h2
-        class="text-center text-xs font-semibold uppercase tracking-widest text-ink-500"
-        data-animate
-      >
-        Our Partners
-      </h2>
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-8">
-        {
-          ["Partner 1", "Partner 2", "Partner 3", "Partner 4"].map((p, i) => (
-            <div
-              class="flex h-16 w-44 items-center justify-center rounded-xl border border-ink-700/60 bg-white/[0.02] text-sm text-ink-500"
-              data-animate
-              data-delay={String(i + 1)}
-            >
-              {p}
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section> -->
-
-  <!-- ══════════ DATA SOLUTIONS ══════════ -->
-  <section class="bg-base-200 py-20 lg:py-28">
-    <div
-      class="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20"
-    >
-      <div data-animate>
-        <h2
-          class="max-w-lg font-heading text-3xl font-bold leading-snug text-ink-50 lg:text-4xl"
-        >
-          Regardless of the size or complexity of your distributted system and
-          data requirements, Mozek Technologies will always start with
-          understanding your desired business outcomes.
+  <!-- ══════════ APPROACH ══════════ -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:py-28">
+    <div class="flex flex-wrap items-center gap-x-20 gap-y-12" data-animate>
+      <div class="min-w-[300px] flex-1">
+        <span class="font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// our approach</span>
+        <h2 class="mt-4 font-heading text-3xl font-bold leading-tight tracking-tight text-ink-50 lg:text-5xl">
+          We start with your business outcomes — not the tech stack.
         </h2>
-        <p class="mt-6 leading-relaxed text-ink-400">
-          We combine deep technical expertise with pragmatic business thinking
-          to deliver solutions that are not just architecturally sound but
-          genuinely impactful. From greenfield builds to modernising legacy
-          pipelines, our approach is always outcome-driven.
+        <p class="mt-6 max-w-xl leading-relaxed text-ink-400">
+          Regardless of the size or complexity of your distributed systems and
+          data requirements, we begin by understanding the result you need. Then
+          we combine deep technical expertise with pragmatic engineering to
+          deliver solutions that are architecturally sound and genuinely impactful.
         </p>
-        <a
-          href="/services"
-          class="group mt-8 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-secondary"
-        >
-          Our Services <span
-            class="transition-transform group-hover:translate-x-0.5"
-            >&rarr;</span
-          >
+        <a href="/services" class="group mt-7 inline-flex items-center gap-2 font-semibold text-primary">
+          Our services <span class="font-mono transition-transform group-hover:translate-x-0.5">&rarr;</span>
         </a>
       </div>
-
-      <div data-animate data-delay="2">
-        <BrandImage
-          src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=600&fit=crop"
-          alt="Close-up of a circuit board representing data infrastructure"
-          width={800}
-          height={600}
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ FEATURE LIST ══════════ -->
-  <section class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-6">
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="flex min-w-[300px] flex-1 flex-col gap-3.5">
         {
-          [
-            {
-              num: "01",
-              title: "Consulting",
-              desc: "End-to-end data strategy and hands-on engineering to accelerate your cloud and data initiatives.",
-            },
-            {
-              num: "02",
-              title: "Training",
-              desc: "Expert-led programmes that upskill your engineering teams in modern cloud, data, and AI technologies.",
-            },
-            {
-              num: "03",
-              title: "Architecture Review",
-              desc: "Independent assessment of your existing systems to identify gaps, reduce cost, and improve resilience.",
-            },
-            {
-              num: "04",
-              title: "Cloud Native Solutions",
-              desc: "Bespoke cloud-native development — from IoT ingestion to real-time analytics and ML-powered products.",
-            },
-          ].map((f, i) => (
-            <div
-              class="card bg-base-200 border border-ink-700/60"
-              data-animate
-              data-delay={String(i + 1)}
-            >
-              <div class="card-body">
-                <span class="font-heading text-3xl font-bold text-primary/40">
-                  {f.num}
-                </span>
-                <h3 class="card-title font-heading text-ink-50">
-                  {f.title}
-                </h3>
-                <p class="text-sm leading-relaxed text-ink-400">
-                  {f.desc}
-                </p>
+          principles.map((p) => (
+            <div class="flex items-start gap-[18px] rounded-2xl border border-ink-700/60 bg-base-200 p-[22px]">
+              <span class="pt-0.5 font-mono text-sm text-primary">{p.num}</span>
+              <div>
+                <div class="font-heading text-lg font-semibold text-ink-50">{p.title}</div>
+                <div class="mt-1.5 text-sm leading-relaxed text-ink-400">{p.desc}</div>
               </div>
             </div>
           ))
@@ -155,39 +97,54 @@ import BrandImage from "../components/BrandImage.astro";
     </div>
   </section>
 
-  <!-- ══════════ PROVEN RESULTS ══════════ -->
-  <section class="bg-base-200 py-20 lg:py-28">
-    <div
-      class="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20"
-    >
-      <div class="order-2 lg:order-1" data-animate data-delay="2">
-        <BrandImage
-          src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=600&fit=crop"
-          alt="Engineer working on code representing proven delivery"
-          width={800}
-          height={600}
-        />
-      </div>
-
-      <div class="order-1 lg:order-2" data-animate>
-        <h2 class="font-heading text-3xl font-bold text-ink-50 lg:text-4xl">
-          Proven Results
-        </h2>
-        <p class="mt-6 leading-relaxed text-ink-400">
-          We have a track record of delivering tailored data and AI solutions
-          that create measurable business impact. Whether it is reducing
-          pipeline latency by 10x or standing up a production ML platform from
-          scratch, our clients trust us to deliver reliably and on time.
-        </p>
-        <a
-          href="/projects"
-          class="group mt-8 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-secondary"
-        >
-          Success Stories <span
-            class="transition-transform group-hover:translate-x-0.5"
-            >&rarr;</span
+  <!-- ══════════ SERVICES ══════════ -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:py-28">
+    <div class="max-w-2xl" data-animate>
+      <span class="font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// what we do</span>
+      <h2 class="mt-4 font-heading text-3xl font-bold leading-tight tracking-tight text-ink-50 lg:text-5xl">Four ways we plug in.</h2>
+    </div>
+    <div class="mt-10 grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
+      {
+        services.map((f, i) => (
+          <div
+            class="group flex flex-col rounded-2xl border border-ink-700/60 bg-base-200 p-7 transition-all duration-200 hover:-translate-y-1 hover:border-primary"
+            data-animate
+            data-delay={String(i + 1)}
           >
+            <span class="font-mono text-sm text-primary">{f.num}</span>
+            <h3 class="mt-[18px] font-heading text-[1.4rem] font-semibold text-ink-50">{f.title}</h3>
+            <p class="mt-3 flex-1 text-sm leading-relaxed text-ink-400">{f.desc}</p>
+            <span class="mt-[18px] font-mono text-xs tracking-wide text-ink-600">{f.tag}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ══════════ RESULTS ══════════ -->
+  <section class="border-y border-ink-700/60 bg-base-200">
+    <div class="mx-auto flex max-w-7xl flex-wrap gap-x-20 gap-y-10 px-6 py-20 lg:py-28" data-animate>
+      <div class="min-w-[300px] flex-1">
+        <span class="font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// proven results</span>
+        <h2 class="mt-4 font-heading text-3xl font-bold leading-tight tracking-tight text-ink-50 lg:text-5xl">Measurable impact, delivered on time.</h2>
+        <p class="mt-6 max-w-lg leading-relaxed text-ink-400">
+          Whether it's a 3× faster Greeks P&amp;L attribution system for a
+          variable-annuity insurer or standing up a production ML platform from
+          scratch, our clients trust us to deliver reliably.
+        </p>
+        <a href="/projects" class="group mt-7 inline-flex items-center gap-2 font-semibold text-primary">
+          Success stories <span class="font-mono transition-transform group-hover:translate-x-0.5">&rarr;</span>
         </a>
+      </div>
+      <div class="flex min-w-[260px] flex-1 flex-col justify-center gap-7">
+        {
+          stats.map((s) => (
+            <div class="border-l-2 border-primary pl-5">
+              <div class="font-heading text-5xl font-bold leading-none tracking-tight text-ink-50 lg:text-6xl">{s.value}</div>
+              <div class="mt-2 font-mono text-[13px] tracking-wide text-ink-500">{s.label}</div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

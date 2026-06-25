@@ -1,101 +1,104 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import WhyMozek from "../components/WhyMozek.astro";
 import CTA from "../components/CTA.astro";
 import { Image } from "astro:assets";
 import moImg from "../images/mo.jpg";
 
-const team = [
-  {
-    name: "Mohammed Abdulrazeg",
-    role: "Founder and Director",
-    img: moImg,
-    bio: "Over 15 years of experience leading large-scale data platform initiatives across financial services and healthcare. Specialises in distributed systems design, cloud migration strategy, and building high-performing engineering teams.",
-  },
-  // {
-  //   name: "Team Member 2",
-  //   role: "Lead Engineer",
-  //   img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop&crop=face",
-  //   bio: "Full-stack data engineer with deep expertise in real-time streaming architectures, Kubernetes-based deployments, and infrastructure-as-code. Previously led platform engineering at a Series B fintech startup.",
-  // },
-  // {
-  //   name: "Team Member 3",
-  //   role: "ML Lead",
-  //   img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face",
-  //   bio: "Machine learning engineer and researcher with a background in NLP and computer vision. Passionate about bridging the gap between experimental ML and production-grade systems through robust MLOps practices.",
-  // },
+const process = [
+  { num: "01", title: "Discover", desc: "We map the business outcome, constraints and the systems already in play." },
+  { num: "02", title: "Architect", desc: "A pragmatic design that fits your team, budget and reliability needs — not a reference diagram." },
+  { num: "03", title: "Build", desc: "We ship in tight increments, with tests, observability and documentation from day one." },
+  { num: "04", title: "Operate", desc: "We hand over cleanly — or stay on to run it — so the system keeps delivering after launch." },
+];
+
+const apart = [
+  { title: "Direct access to seniors", desc: "You work with principal-level engineers, not account managers." },
+  { title: "Vendor-neutral", desc: "We pick the right tool for your problem, not the one we resell." },
+  { title: "Outcome-first", desc: "Engagements are scoped around measurable business results." },
+  { title: "Production-minded", desc: "Reliability, cost and operability are designed in, never bolted on." },
 ];
 ---
 
 <Layout title="About — Mozek Technologies">
   <!-- ══════════ HERO ══════════ -->
-  <section class="relative overflow-hidden pb-20 pt-16 lg:pb-28 lg:pt-24">
+  <section class="relative overflow-hidden px-6 pb-14 pt-16 lg:pt-24">
     <div
-      class="pointer-events-none absolute left-0 top-0 h-[600px] w-[600px] -translate-x-1/3 -translate-y-1/4 rounded-full bg-accent/[0.06] blur-[120px]"
+      class="bg-dotgrid pointer-events-none absolute inset-0"
+      style="-webkit-mask-image:radial-gradient(ellipse 75% 70% at 25% 20%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse 75% 70% at 25% 20%,#000 0%,transparent 75%);"
     >
     </div>
-
-    <div class="relative mx-auto max-w-7xl px-6">
-      <h1
-        class="animate-on-load max-w-3xl font-heading text-4xl font-extrabold leading-tight text-ink-50 lg:text-6xl"
-      >
-        Enterprise-Grade Data&nbsp;&amp;&nbsp;AI Solutions
+    <div class="relative mx-auto max-w-7xl">
+      <span class="animate-on-load font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// about mozek</span>
+      <h1 class="animate-on-load-d1 mt-5 max-w-3xl font-heading text-4xl font-bold leading-[1.03] tracking-tight text-ink-50 lg:text-7xl">
+        Senior engineers who sweat the hard parts.
       </h1>
-      <div
-        class="animate-on-load-d1 mt-8 max-w-2xl space-y-4 text-lg leading-relaxed text-ink-400"
-      >
-        <p>
-          Mozek Technologies is a trusted partner for organisations seeking to
-          harness the full potential of their data. We work alongside your teams
-          — not as an outsourced vendor, but as an embedded extension of your
-          engineering function — delivering scalable, production-ready
-          architectures.
-        </p>
-        <p>
-          With a global delivery capability and deep expertise across every
-          major cloud provider, we help enterprises modernise legacy systems,
-          build greenfield platforms, and adopt machine learning at scale.
+      <p class="animate-on-load-d2 mt-6 max-w-2xl text-lg leading-relaxed text-ink-400">
+        Mozek is a small, deliberately boutique team. No layers, no juniors
+        learning on your budget — just senior engineers who have built and
+        operated data, cloud and AI systems at scale, and who stay hands-on from
+        first whiteboard to production on-call.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════ FOUNDER ══════════ -->
+  <section class="mx-auto max-w-7xl px-6 pb-20 lg:pb-24">
+    <div class="flex flex-wrap items-stretch gap-x-12 gap-y-8" data-animate>
+      <div class="min-w-[260px] flex-1 overflow-hidden rounded-2xl border border-ink-700/60">
+        <Image src={moImg} alt="Mohammed Abdulrazeg" class="h-full max-h-[440px] w-full object-cover object-center" width={520} height={560} />
+      </div>
+      <div class="flex min-w-[300px] flex-[1.4] flex-col justify-center rounded-2xl border border-ink-700/60 bg-base-200 p-8 lg:p-10">
+        <span class="font-mono text-xs uppercase tracking-[0.12em] text-ink-500">// the team</span>
+        <h2 class="mt-3 font-heading text-2xl font-bold text-ink-50 lg:text-3xl">Mohammed Abdulrazeg</h2>
+        <p class="mt-1 font-medium text-primary">Founder &amp; Director</p>
+        <p class="mt-5 leading-relaxed text-ink-400">
+          Over 15 years of experience leading large-scale data platform
+          initiatives across financial services and healthcare. Specialises in
+          distributed systems design, cloud migration strategy, and building
+          high-performing engineering teams.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ TEAM ══════════ -->
-  <section class="bg-base-200 py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-6">
-      <h2
-        class="font-heading text-3xl font-bold text-ink-50 lg:text-4xl"
-        data-animate
-      >
-        The Mozek Team
-      </h2>
+  <!-- ══════════ HOW WE WORK ══════════ -->
+  <section class="mx-auto max-w-7xl px-6 pb-20 lg:pb-28">
+    <div class="max-w-2xl" data-animate>
+      <span class="font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// how we work</span>
+      <h2 class="mt-4 font-heading text-2xl font-bold tracking-tight text-ink-50 lg:text-4xl">A clear path from outcome to operation.</h2>
+    </div>
+    <div class="mt-10 grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
+      {
+        process.map((p, i) => (
+          <div class="rounded-2xl border border-ink-700/60 bg-base-200 p-[26px]" data-animate data-delay={String(i + 1)}>
+            <span class="font-mono text-sm text-primary">{p.num}</span>
+            <h3 class="mt-4 font-heading text-xl font-semibold text-ink-50">{p.title}</h3>
+            <p class="mt-2.5 text-[14.5px] leading-relaxed text-ink-400">{p.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
 
-      <div class="mt-12 grid gap-8 md:grid-cols-3">
+  <!-- ══════════ WHAT SETS US APART ══════════ -->
+  <section class="border-y border-ink-700/60 bg-base-200">
+    <div class="mx-auto flex max-w-7xl flex-wrap gap-x-20 gap-y-10 px-6 py-20 lg:py-24" data-animate>
+      <div class="min-w-[300px] flex-1">
+        <span class="font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// what sets us apart</span>
+        <h2 class="mt-4 font-heading text-2xl font-bold tracking-tight text-ink-50 lg:text-4xl">Boutique by design.</h2>
+        <p class="mt-6 max-w-md leading-relaxed text-ink-400">
+          We stay small on purpose. It keeps the people you meet the same people
+          who do the work — and keeps our advice honest.
+        </p>
+      </div>
+      <div class="min-w-[300px] flex-1">
         {
-          team.map((m, i) => (
-            <div
-              class="card bg-base-100 border border-ink-700/60 overflow-hidden"
-              data-animate
-              data-delay={String(i + 1)}
-            >
-              <figure>
-                <Image
-                  src={m.img}
-                  alt={m.name}
-                  class="h-96 w-full object-cover object-center"
-                  width={400}
-                  height={450}
-                  loading="lazy"
-                />
-              </figure>
-              <div class="card-body">
-                <h3 class="card-title font-heading text-ink-50">
-                  {m.name}
-                </h3>
-                <p class="text-sm font-medium text-primary">{m.role}</p>
-                <p class="mt-1 text-sm leading-relaxed text-ink-400">
-                  {m.bio}
-                </p>
+          apart.map((a, i) => (
+            <div class:list={["flex gap-4 py-5", i < apart.length - 1 ? "border-b border-ink-700/60" : ""]}>
+              <span class="pt-0.5 font-mono text-primary">&rarr;</span>
+              <div>
+                <div class="font-heading text-[17px] font-semibold text-ink-50">{a.title}</div>
+                <div class="mt-1 text-[14.5px] leading-relaxed text-ink-400">{a.desc}</div>
               </div>
             </div>
           ))
@@ -104,9 +107,5 @@ const team = [
     </div>
   </section>
 
-  <!-- ══════════ WHY MOZEK ══════════ -->
-  <WhyMozek />
-
-  <!-- ══════════ CTA ══════════ -->
-  <CTA />
+  <CTA title="Let's build something that lasts." />
 </Layout>

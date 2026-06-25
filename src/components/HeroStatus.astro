@@ -1,0 +1,41 @@
+---
+// Hero "live status" panel. Static, illustrative metrics — swap for real values.
+const bars = [40, 58, 32, 70, 48, 62, 78, 44, 60, 86, 52, 68, 74, 56, 90, 64, 50, 72];
+const rows = [
+  { label: "uptime", value: "99.98%", accent: false },
+  { label: "p95 latency", value: "41ms", accent: false },
+  { label: "pipelines", value: "218 green", accent: true },
+  { label: "regions", value: "6", accent: false },
+];
+---
+
+<div class="overflow-hidden rounded-2xl border border-ink-700/60 bg-base-200 shadow-2xl shadow-black/40">
+  <!-- Title bar -->
+  <div class="flex items-center gap-2.5 border-b border-ink-700/60 px-[18px] py-3.5">
+    <span class="h-[11px] w-[11px] rounded-full bg-[#ff5f57]"></span>
+    <span class="h-[11px] w-[11px] rounded-full bg-[#febc2e]"></span>
+    <span class="h-[11px] w-[11px] rounded-full bg-[#28c840]"></span>
+    <span class="ml-2 font-mono text-xs text-ink-500">mozek · prod</span>
+    <span class="ml-auto inline-flex items-center gap-1.5 font-mono text-xs text-primary">
+      <span class="animate-blink h-[7px] w-[7px] rounded-full bg-primary"></span>live
+    </span>
+  </div>
+
+  <!-- Body -->
+  <div class="px-[22px] pb-[22px] pt-5">
+    <div class="mb-[22px] flex h-[52px] items-end gap-1">
+      {bars.map((h) => (
+        <div class="flex-1 rounded-sm bg-primary/50" style={`height:${h}%`}></div>
+      ))}
+    </div>
+
+    {
+      rows.map((r) => (
+        <div class="flex items-center justify-between border-t border-ink-700/50 py-[11px] font-mono text-[13.5px]">
+          <span class="text-ink-500">{r.label}</span>
+          <span class={r.accent ? "text-primary" : "text-ink-50"}>{r.value}</span>
+        </div>
+      ))
+    }
+  </div>
+</div>

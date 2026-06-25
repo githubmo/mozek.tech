@@ -1,57 +1,74 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const techs: { name: string; icon: string; color: string }[] = [
-  { name: "Python", icon: "simple-icons:python", color: "#3776AB" },
-  { name: "Scala", icon: "simple-icons:scala", color: "#DC322F" },
-  { name: "Rust", icon: "simple-icons:rust", color: "#EAEFF5" },
-  { name: "Go", icon: "simple-icons:go", color: "#00ADD8" },
-  { name: "AWS", icon: "simple-icons:amazonwebservices", color: "#FF9900" },
-  { name: "Azure", icon: "simple-icons:microsoftazure", color: "#0078D4" },
-  { name: "GCP", icon: "simple-icons:googlecloud", color: "#4285F4" },
-  { name: "Docker", icon: "simple-icons:docker", color: "#2496ED" },
-  { name: "Kubernetes", icon: "simple-icons:kubernetes", color: "#326CE5" },
-  { name: "Terraform", icon: "simple-icons:terraform", color: "#7B42BC" },
-  { name: "Pulumi", icon: "simple-icons:pulumi", color: "#8A3391" },
-  { name: "PostgreSQL", icon: "simple-icons:postgresql", color: "#4169E1" },
-  { name: "Redis", icon: "simple-icons:redis", color: "#FF4438" },
-  { name: "Kafka", icon: "simple-icons:apachekafka", color: "#EAEFF5" },
-  { name: "Spark", icon: "simple-icons:apachespark", color: "#E25A1C" },
-  { name: "Trino", icon: "simple-icons:trino", color: "#DD00A1" },
-  { name: "Airflow", icon: "simple-icons:apacheairflow", color: "#017CEE" },
-  { name: "dbt", icon: "simple-icons:dbt", color: "#FF694A" },
-  { name: "Pandas", icon: "simple-icons:pandas", color: "#EAEFF5" },
-  { name: "PyTorch", icon: "simple-icons:pytorch", color: "#EE4C2C" },
-  { name: "TensorFlow", icon: "simple-icons:tensorflow", color: "#FF6F00" },
-  { name: "OpenAI", icon: "simple-icons:openai", color: "#EAEFF5" },
-  { name: "Anthropic", icon: "simple-icons:anthropic", color: "#D97757" },
-  { name: "LangChain", icon: "simple-icons:langchain", color: "#EAEFF5" },
-  { name: "Prometheus", icon: "simple-icons:prometheus", color: "#E6522C" },
-  { name: "Grafana", icon: "simple-icons:grafana", color: "#F46800" },
-  { name: "OpenTelemetry", icon: "simple-icons:opentelemetry", color: "#EAEFF5" },
+// Monochrome by default (icons inherit currentColor → ink-200). To restore brand
+// colours, add `style={{ color: t.color }}` back to the <Icon> and drop text-ink-200.
+const techs: { name: string; icon: string }[] = [
+  { name: "Python", icon: "simple-icons:python" },
+  { name: "Scala", icon: "simple-icons:scala" },
+  { name: "Rust", icon: "simple-icons:rust" },
+  { name: "Go", icon: "simple-icons:go" },
+  { name: "AWS", icon: "simple-icons:amazonwebservices" },
+  { name: "Azure", icon: "simple-icons:microsoftazure" },
+  { name: "GCP", icon: "simple-icons:googlecloud" },
+  { name: "Docker", icon: "simple-icons:docker" },
+  { name: "Kubernetes", icon: "simple-icons:kubernetes" },
+  { name: "Terraform", icon: "simple-icons:terraform" },
+  { name: "Pulumi", icon: "simple-icons:pulumi" },
+  { name: "PostgreSQL", icon: "simple-icons:postgresql" },
+  { name: "Redis", icon: "simple-icons:redis" },
+  { name: "Kafka", icon: "simple-icons:apachekafka" },
+  { name: "Spark", icon: "simple-icons:apachespark" },
+  { name: "Trino", icon: "simple-icons:trino" },
+  { name: "Airflow", icon: "simple-icons:apacheairflow" },
+  { name: "dbt", icon: "simple-icons:dbt" },
+  { name: "Pandas", icon: "simple-icons:pandas" },
+  { name: "PyTorch", icon: "simple-icons:pytorch" },
+  { name: "TensorFlow", icon: "simple-icons:tensorflow" },
+  { name: "OpenAI", icon: "simple-icons:openai" },
+  { name: "Anthropic", icon: "simple-icons:anthropic" },
+  { name: "LangChain", icon: "simple-icons:langchain" },
+  { name: "Prometheus", icon: "simple-icons:prometheus" },
+  { name: "Grafana", icon: "simple-icons:grafana" },
+  { name: "OpenTelemetry", icon: "simple-icons:opentelemetry" },
 ];
+
+const half = Math.ceil(techs.length / 2);
+const rowA = techs.slice(0, half);
+const rowB = techs.slice(half);
 ---
 
-<section class="border-y border-ink-700/60 bg-base-100 py-8 overflow-hidden">
-  <div class="relative">
-    <!-- Fade edges -->
-    <div
-      class="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-base-100 to-transparent"
-    ></div>
-    <div
-      class="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-base-100 to-transparent"
-    ></div>
+<section class="overflow-hidden border-y border-ink-700/60 bg-base-100 py-12">
+  <div class="mx-auto mb-6 max-w-7xl px-6">
+    <span class="font-mono text-xs uppercase tracking-[0.14em] text-ink-500">// the stack we build on</span>
+  </div>
 
-    <div class="animate-marquee flex w-max items-center gap-10">
-      {/* Duplicate set for seamless loop */}
-      {[...techs, ...techs].map((t) => (
-        <Icon
-          name={t.icon}
-          title={t.name}
-          aria-label={t.name}
-          style={{ color: t.color }}
-          class="h-10 w-10 shrink-0 opacity-80 transition-opacity hover:opacity-100"
-        />
+  <!-- Row 1 -->
+  <div
+    class="marquee-row relative"
+    style="-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);"
+  >
+    <div class="animate-marquee flex w-max items-center gap-3.5">
+      {[...rowA, ...rowA].map((t) => (
+        <div class="inline-flex shrink-0 items-center gap-2.5 rounded-xl border border-ink-700/60 bg-white/[0.025] px-5 py-3">
+          <Icon name={t.icon} title={t.name} aria-label={t.name} class="h-[22px] w-[22px] text-ink-200" />
+          <span class="font-mono text-[13px] text-ink-300">{t.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Row 2 (reverse) -->
+  <div
+    class="marquee-row relative mt-3.5"
+    style="-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);"
+  >
+    <div class="animate-marquee reverse flex w-max items-center gap-3.5">
+      {[...rowB, ...rowB].map((t) => (
+        <div class="inline-flex shrink-0 items-center gap-2.5 rounded-xl border border-ink-700/60 bg-white/[0.025] px-5 py-3">
+          <Icon name={t.icon} title={t.name} aria-label={t.name} class="h-[22px] w-[22px] text-ink-200" />
+          <span class="font-mono text-[13px] text-ink-300">{t.name}</span>
+        </div>
       ))}
     </div>
   </div>
