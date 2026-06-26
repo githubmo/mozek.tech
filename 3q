@@ -1,0 +1,41 @@
+mentioning students
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	modified:   src/pages/index.astro
+#	modified:   src/pages/training.astro
+#
+# ------------------------ >8 ------------------------
+# Do not modify or remove the line above.
+# Everything below it will be ignored.
+diff --git a/src/pages/index.astro b/src/pages/index.astro
+index 66e0615..3e0c963 100644
+--- a/src/pages/index.astro
++++ b/src/pages/index.astro
+@@ -21,6 +21,7 @@ const stats = [
+   { value: "3×", label: "faster Greeks P&L attribution at a leading US variable-annuity insurer" },
+   { value: "99.98%", label: "uptime SLAs met" },
+   { value: "100%", label: "on-time delivery" },
++  { value: "1,000+", label: "students taught" },
+ ];
+ ---
+ 
+diff --git a/src/pages/training.astro b/src/pages/training.astro
+index 75994e6..b97b231 100644
+--- a/src/pages/training.astro
++++ b/src/pages/training.astro
+@@ -89,6 +89,10 @@ const steps = [
+         Expert-led, hands-on programmes taught by the same engineers who build
+         production systems. Tailored to your stack and delivered on-site or remote.
+       </p>
++      <div class="animate-on-load-d3 mt-9 inline-flex items-center gap-5 border-l-2 border-primary pl-5">
++        <span class="font-heading text-4xl font-bold leading-none tracking-tight text-ink-50 lg:text-5xl">1,000+</span>
++        <span class="font-mono text-[13px] tracking-wide text-ink-500">students taught</span>
++      </div>
+     </div>
+   </section>
+ 
