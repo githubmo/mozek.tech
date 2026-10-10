@@ -18,10 +18,31 @@ const services = [
 ];
 
 const stats = [
-  { value: "3×", label: "faster Greeks P&L attribution at a leading US variable-annuity insurer" },
-  { value: "99.98%", label: "uptime SLAs met" },
-  { value: "100%", label: "on-time delivery" },
+  { value: "6+ yrs", label: "of repeat engagements with Brighthouse Financial" },
+  { value: "4–5×", label: "faster ML data-generation jobs at Depop" },
+  { value: "2×", label: "faster model training at Depop" },
   { value: "1,000+", label: "students taught" },
+];
+
+const testimonials = [
+  {
+    logo: "/logos/brighthouse.svg",
+    company: "Brighthouse Financial",
+    quote:
+      "We first worked with them on an innovative hedging platform, where they helped us design and implement key data acquisition and management services. The engagement was so successful that we brought them back to help us analyze our data architecture and build a new event-driven data management platform. They work effectively with both our technology teams and our business partners, and they consistently deliver top-level implementations. I would absolutely work with them again.",
+    name: "Craig Stewart",
+    role: "Leader, DevOps & Managed Services",
+    org: "Brighthouse Financial, Inc.",
+  },
+  {
+    logo: "/logos/depop.svg",
+    company: "Depop",
+    quote:
+      "Mozek Technologies has worked with Depop’s Ranking team since June 2026, supporting our machine learning data pipelines and model-serving infrastructure. Our data-generation jobs now run four to five times faster on average, while model-training jobs run up to twice as fast. These improvements have resolved several persistent pain points and materially improved the team’s day-to-day efficiency. Working with Mozek Technologies has been an excellent contractor experience, and we would be very happy to work with them again.",
+    name: "Guilhem Vuillier",
+    role: "Senior ML Manager",
+    org: "Depop, an eBay company",
+  },
 ];
 ---
 
@@ -129,11 +150,11 @@ const stats = [
         <span class="font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// proven results</span>
         <h2 class="mt-4 font-heading text-3xl font-bold leading-tight tracking-tight text-ink-50 lg:text-5xl">Measurable impact, delivered on time.</h2>
         <p class="mt-6 max-w-lg leading-relaxed text-ink-400">
-          Whether it's a 3× faster Greeks P&amp;L attribution system for a
-          variable-annuity insurer or standing up a production ML platform from
-          scratch, our clients trust us to deliver reliably.
+          Whether it's a new event-driven data platform for a US annuity and
+          life insurer or 4–5× faster ML data pipelines at Depop, our clients
+          trust us to deliver reliably — and bring us back.
         </p>
-        <a href="/projects" class="group mt-7 inline-flex items-center gap-2 font-semibold text-primary">
+        <a href="/case-studies" class="group mt-7 inline-flex items-center gap-2 font-semibold text-primary">
           Success stories <span class="font-mono transition-transform group-hover:translate-x-0.5">&rarr;</span>
         </a>
       </div>
@@ -147,6 +168,28 @@ const stats = [
           ))
         }
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════ TESTIMONIALS ══════════ -->
+  <section class="mx-auto max-w-7xl px-6 py-20 lg:py-28">
+    <div class="max-w-2xl" data-animate>
+      <span class="font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// client words</span>
+      <h2 class="mt-4 font-heading text-3xl font-bold leading-tight tracking-tight text-ink-50 lg:text-5xl">Trusted by the teams we work with.</h2>
+    </div>
+    <div class="mt-10 grid gap-[18px] lg:grid-cols-2">
+      {
+        testimonials.map((t, i) => (
+          <figure class="flex flex-col rounded-2xl border border-ink-700/60 bg-base-200 p-7 lg:p-9" data-animate data-delay={String(i + 1)}>
+            <img src={t.logo} alt={t.company} class="h-7 w-auto self-start opacity-80 brightness-0 invert" loading="lazy" />
+            <blockquote class="mt-7 flex-1 leading-relaxed text-ink-200">&ldquo;{t.quote}&rdquo;</blockquote>
+            <figcaption class="mt-7 border-l-2 border-primary pl-4">
+              <div class="font-heading font-semibold text-ink-50">{t.name}</div>
+              <div class="mt-1 font-mono text-xs tracking-wide text-ink-500">{t.role} · {t.org}</div>
+            </figcaption>
+          </figure>
+        ))
+      }
     </div>
   </section>
 

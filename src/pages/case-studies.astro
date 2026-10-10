@@ -4,22 +4,53 @@ import CTA from "../components/CTA.astro";
 import { Image } from "astro:assets";
 import dealermadeImg from "../images/dealermade.png";
 
-const cards = [
+const stories = [
   {
-    sector: "FINTECH · INSURANCE",
-    metric: "3×",
-    metricLabel: "faster Greeks P&L attribution",
-    title: "Risk & valuation reporting platform",
-    desc: "Modernised the Greeks P&L attribution and 2D sensitivity reporting for a leading US variable-annuity insurer, integrating market and analytics data from BlackRock Aladdin, ICE and Bloomberg into reporting risk teams can trust.",
-    tags: ["Aladdin", "ICE", "Bloomberg"],
+    logo: "/logos/brighthouse.svg",
+    name: "Brighthouse Financial",
+    sector: "Annuities & life insurance · US",
+    paras: [
+      "Brighthouse first engaged the team in 2020 to design and implement the critical data acquisition and data management capabilities behind a new hedging platform — working directly with their engineers and business partners, from requirements and architecture through to the services that run it.",
+      "In 2026 they brought us back to evaluate and modernise their data architecture: analysing existing systems, designing and building a completely new event-driven data management platform, and identifying optimisation opportunities across their wider technology estate.",
+    ],
+    metrics: [
+      { value: "6+ yrs", label: "of repeat engagements" },
+      { value: "2", label: "platforms designed & delivered" },
+    ],
+    tags: ["Event-driven", "Data platform", "Hedging"],
+    quote:
+      "They work effectively with both our technology teams and our business partners, and they consistently deliver top-level implementations. They bring strong technical expertise, excellent communication, and great people to work with. I would absolutely work with them again.",
+    person: "Craig Stewart",
+    role: "Leader, DevOps & Managed Services",
   },
   {
+    logo: "/logos/depop.svg",
+    name: "Depop",
+    sector: "Marketplace · an eBay company",
+    paras: [
+      "Since June 2026 we've been embedded with Depop's Ranking team, supporting the machine learning data pipelines and model-serving infrastructure behind their marketplace.",
+      "We led the migration of training-data pipelines to Databricks Asset Bundles — orchestration and application code — and into production, contributed substantially to the move from Jenkins to GitHub Actions, rebuilt the Docker images used to serve models, built a backfill workflow with an at-a-glance progress interface, and helped optimise SageMaker endpoints.",
+    ],
+    metrics: [
+      { value: "4–5×", label: "faster data-generation jobs" },
+      { value: "2×", label: "faster model training" },
+    ],
+    tags: ["Databricks", "GitHub Actions", "SageMaker", "Docker"],
+    quote:
+      "These improvements have resolved several persistent pain points and materially improved the team’s day-to-day efficiency. Working with Mozek Technologies has been an excellent contractor experience, and we would be very happy to work with them again.",
+    person: "Guilhem Vuillier",
+    role: "Senior ML Manager",
+  },
+];
+
+const cards = [
+  {
     sector: "RETAIL · E-COMMERCE",
-    metric: "99.98%",
-    metricLabel: "platform uptime",
-    title: "Production ML platform",
-    desc: "Stood up an MLOps platform from scratch — feature store, training and serving — taking models from notebook to production in weeks, not quarters.",
-    tags: ["Kubernetes", "PyTorch", "Airflow"],
+    metric: "4–5×",
+    metricLabel: "faster data generation · 2× faster training",
+    title: "Production ML pipelines",
+    desc: "Migrated ranking-model training-data pipelines to Databricks Asset Bundles, moved CI/CD from Jenkins to GitHub Actions and rebuilt model-serving images — making data generation 4–5× faster and training up to 2× faster.",
+    tags: ["Databricks", "GitHub Actions", "SageMaker"],
   },
   {
     sector: "ENERGY · IOT",
@@ -32,7 +63,7 @@ const cards = [
 ];
 ---
 
-<Layout title="Projects — Mozek Technologies">
+<Layout title="Case Studies — Mozek Technologies">
   <!-- ══════════ HERO ══════════ -->
   <section class="relative overflow-hidden px-6 pb-12 pt-16 lg:pt-24">
     <div
@@ -60,10 +91,7 @@ const cards = [
         <!-- Client header -->
         <div class="flex items-center gap-4 border-b border-ink-700/60 px-7 py-[22px] lg:px-8">
           <Image src={dealermadeImg} alt="DealerMade logo" class="h-[30px] w-auto" height={30} />
-          <div>
-            <h2 class="font-heading text-lg font-semibold text-ink-50">DealerMade</h2>
-            <p class="mt-0.5 font-mono text-[12.5px] text-ink-500">B2B SaaS &middot; Texas</p>
-          </div>
+          <p class="font-mono text-[12.5px] text-ink-500">B2B SaaS &middot; Texas</p>
         </div>
 
         <div class="flex flex-wrap gap-x-12 gap-y-7 p-7 lg:p-10">
@@ -119,6 +147,50 @@ const cards = [
       </div>
     </div>
   </section>
+
+  <!-- ══════════ CLIENT STORIES — Brighthouse, Depop ══════════ -->
+  {
+    stories.map((c) => (
+      <section class="mx-auto max-w-7xl px-6 pb-16 lg:pb-20">
+        <div class="overflow-hidden rounded-[1.1rem] border border-ink-700/60 bg-base-200" data-animate>
+          <div class="flex items-center gap-4 border-b border-ink-700/60 px-7 py-[22px] lg:px-8">
+            <img src={c.logo} alt={`${c.name} logo`} class="h-[26px] w-auto opacity-80 brightness-0 invert" loading="lazy" />
+            <p class="font-mono text-[12.5px] text-ink-500">{c.sector}</p>
+          </div>
+          <div class="flex flex-wrap gap-x-12 gap-y-7 p-7 lg:p-10">
+            <div class="flex min-w-[300px] flex-[1.3_1_360px] flex-col gap-4 leading-relaxed text-ink-400">
+              {c.paras.map((p) => <p>{p}</p>)}
+              {c.metrics.length > 0 && (
+                <div class="mt-2 flex flex-wrap gap-x-10 gap-y-5">
+                  {c.metrics.map((m) => (
+                    <div class="border-l-2 border-primary pl-4">
+                      <div class="font-heading text-4xl font-bold leading-none tracking-tight text-ink-50">{m.value}</div>
+                      <div class="mt-1.5 font-mono text-[12.5px] text-ink-500">{m.label}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div class="mt-2 flex flex-wrap gap-1.5">
+                {c.tags.map((t) => (
+                  <span class="rounded-full border border-ink-700/60 px-2.5 py-1 font-mono text-[11.5px] text-ink-300">{t}</span>
+                ))}
+              </div>
+            </div>
+            <div class="flex min-w-[280px] flex-1 items-center">
+              <blockquote class="relative rounded-2xl border border-primary/25 bg-primary/[0.05] p-[30px]">
+                <span class="absolute -top-3.5 left-6 font-heading text-5xl leading-none text-primary/35">&ldquo;</span>
+                <p class="leading-relaxed text-ink-100">{c.quote}</p>
+                <footer class="mt-5 text-[13.5px]">
+                  <span class="font-heading font-semibold text-ink-50">{c.person}</span>
+                  <span class="text-ink-500"> — {c.role}</span>
+                </footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))
+  }
 
   <!-- ══════════ MORE ENGAGEMENTS ══════════ -->
   <section class="mx-auto max-w-7xl px-6 pb-20 lg:pb-28">

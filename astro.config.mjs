@@ -7,6 +7,7 @@ import icon from 'astro-icon';
 // https://astro.build/config
 export default defineConfig({
   integrations: [icon()],
+  redirects: { '/projects': '/case-studies' },
   vite: {
     plugins: [tailwindcss()]
   }

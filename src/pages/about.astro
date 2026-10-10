@@ -3,6 +3,30 @@ import Layout from "../layouts/Layout.astro";
 import CTA from "../components/CTA.astro";
 import { Image } from "astro:assets";
 import moImg from "../images/mo.jpg";
+import argyImg from "../images/argy.jpeg";
+import musabImg from "../images/musab.jpeg";
+import calvinImg from "../images/calvin.png";
+
+const team = [
+  {
+    img: argyImg,
+    name: "Anargyros Akrivos",
+    role: "Cloud Solutions Lead",
+    bio: "An accomplished Cloud Solution Architect with extensive experience in designing and delivering high-performance cloud-based solutions. Skilled in distributed systems, large-scale data processing and database management, he builds robust architectures that integrate messaging buses, CQRS patterns and ETL pipelines. With deep expertise in authentication and authorisation technologies like OIDC, he ensures secure and scalable cloud environments.",
+  },
+  {
+    img: musabImg,
+    name: "Musab Khawaja",
+    role: "Machine Learning & AI Lead",
+    bio: "A highly skilled machine learning expert with a Bachelor’s, Master’s and PhD from Imperial College London, and several published research papers. Proficient in NumPy, PyTorch, TensorFlow and large language models, Musab develops innovative machine learning solutions from research through to real-world applications, combining a deep understanding of algorithms with practical engineering experience.",
+  },
+  {
+    img: calvinImg,
+    name: "Calvin Fernandes",
+    role: "Distributed Systems & Data Engineering Lead",
+    bio: "An accomplished software engineer and solutions architect with more than a decade of experience building distributed systems, cloud-native platforms and large-scale data solutions across media, sports betting, financial services, loyalty and advertising technology. With deep expertise in Scala, event-driven architecture, stream processing, AWS, Kafka, Cassandra, DynamoDB and Spark, he has led resilient, high-throughput systems from architecture and implementation through observability and production support. An active open-source architect and mentor, Calvin also helps engineering teams adopt scalable designs and modern functional-development practices. He has notably contributed to open-source projects such as Virgil, ZIO and Trace4Cats, used in environments that demand every bit of performance, including Disney+, SiriusXM and Morgan Stanley.",
+  },
+];
 
 const process = [
   { num: "01", title: "Discover", desc: "We map the business outcome, constraints and the systems already in play." },
@@ -45,7 +69,7 @@ const apart = [
   <section class="mx-auto max-w-7xl px-6 pb-20 lg:pb-24">
     <div class="flex flex-wrap items-stretch gap-x-12 gap-y-8" data-animate>
       <div class="min-w-[260px] flex-1 overflow-hidden rounded-2xl border border-ink-700/60">
-        <Image src={moImg} alt="Mohammed Abdulrazeg" class="h-full max-h-[440px] w-full object-cover object-center" width={520} height={560} />
+        <Image src={moImg} alt="Mohammed Abdulrazeg" class="h-full max-h-[440px] w-full object-cover object-center grayscale" width={520} height={560} />
       </div>
       <div class="flex min-w-[300px] flex-[1.4] flex-col justify-center rounded-2xl border border-ink-700/60 bg-base-200 p-8 lg:p-10">
         <span class="font-mono text-xs uppercase tracking-[0.12em] text-ink-500">// the team</span>
@@ -58,6 +82,24 @@ const apart = [
           high-performing engineering teams.
         </p>
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════ TEAM ══════════ -->
+  <section class="mx-auto max-w-7xl px-6 pb-20 lg:pb-28">
+    <div class="grid gap-[18px] md:grid-cols-3">
+      {
+        team.map((m, i) => (
+          <div class="flex flex-col rounded-2xl border border-ink-700/60 bg-base-200 p-7" data-animate data-delay={String(i + 1)}>
+            <div class="size-28 overflow-hidden rounded-xl border border-ink-700/60">
+              <Image src={m.img} alt={m.name} class="size-full object-cover object-[50%_30%] grayscale" width={224} height={224} />
+            </div>
+            <h3 class="mt-6 font-heading text-xl font-semibold text-ink-50">{m.name}</h3>
+            {m.role && <p class="mt-1 text-sm font-medium text-primary">{m.role}</p>}
+            {m.bio && <p class="mt-4 text-[14.5px] leading-relaxed text-ink-400">{m.bio}</p>}
+          </div>
+        ))
+      }
     </div>
   </section>
 
