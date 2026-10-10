@@ -18,8 +18,11 @@ const stories = [
       { value: "2", label: "platforms designed & delivered" },
     ],
     tags: ["Event-driven", "Data platform", "Hedging"],
-    quote:
-      "They work effectively with both our technology teams and our business partners, and they consistently deliver top-level implementations. They bring strong technical expertise, excellent communication, and great people to work with. I would absolutely work with them again.",
+    quote: [
+      "What I appreciate most about [the team] is their ability to dive deeply into the problem domain. They work effectively with both our technology teams and our business partners, and they consistently deliver top-level implementations.",
+      "We first worked with them on an innovative hedging platform, where they helped us design and implement key data acquisition and management services. The engagement was so successful that we brought them back to help us analyze our data architecture and build a new event-driven data management platform.",
+      "They bring strong technical expertise, excellent communication, and great people to work with. I would absolutely work with them again.",
+    ],
     person: "Craig Stewart",
     role: "Leader, DevOps & Managed Services",
   },
@@ -36,8 +39,11 @@ const stories = [
       { value: "2×", label: "faster model training" },
     ],
     tags: ["Databricks", "GitHub Actions", "SageMaker", "Docker"],
-    quote:
-      "These improvements have resolved several persistent pain points and materially improved the team’s day-to-day efficiency. Working with Mozek Technologies has been an excellent contractor experience, and we would be very happy to work with them again.",
+    quote: [
+      "His work delivered significant performance improvements. Our data-generation jobs now run four to five times faster on average, while model-training jobs run up to twice as fast. Mohammed also developed a backfill workflow with an interface that allows the team to see at a glance what has been processed. Together, these improvements have resolved several persistent pain points and materially improved the team’s day-to-day efficiency.",
+      "Beyond his technical contributions, Mohammed integrated quickly and efficiently into the team. He showed strong judgement in identifying where he could add the most value, rather than waiting to be assigned tasks.",
+      "We have been extremely pleased with Mohammed’s contribution. Working with Mozek Technologies has been an excellent contractor experience, and we would be very happy to work with them again.",
+    ],
     person: "Guilhem Vuillier",
     role: "Senior ML Manager",
   },
@@ -187,7 +193,7 @@ const cards = [
             <div class="flex min-w-[280px] flex-1 items-center">
               <blockquote class="relative rounded-2xl border border-primary/25 bg-primary/[0.05] p-[30px]">
                 <span class="absolute -top-3.5 left-6 font-heading text-5xl leading-none text-primary/35">&ldquo;</span>
-                <p class="leading-relaxed text-ink-100">{c.quote}</p>
+                <div class="flex flex-col gap-4 leading-relaxed text-ink-100">{c.quote.map((q) => <p>{q}</p>)}</div>
                 <footer class="mt-5 text-[13.5px]">
                   <span class="font-heading font-semibold text-ink-50">{c.person}</span>
                   <span class="text-ink-500"> — {c.role}</span>
