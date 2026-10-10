@@ -171,8 +171,8 @@ const cards = [
             <img src={c.logo} alt={`${c.name} logo`} class="h-[26px] w-auto opacity-80 brightness-0 invert" loading="lazy" />
             <p class="font-mono text-[12.5px] text-ink-500">{c.sector}</p>
           </div>
-          <div class="flex flex-wrap gap-x-12 gap-y-7 p-7 lg:p-10">
-            <div class="flex min-w-[300px] flex-[1.3_1_360px] flex-col gap-4 leading-relaxed text-ink-400">
+          <div class="flex flex-col gap-9 p-7 lg:p-10">
+            <div class="flex max-w-3xl flex-col gap-4 leading-relaxed text-ink-400">
               {c.paras.map((p) => <p>{p}</p>)}
               {c.metrics.length > 0 && (
                 <div class="mt-2 flex flex-wrap gap-x-10 gap-y-5">
@@ -190,10 +190,10 @@ const cards = [
                 ))}
               </div>
             </div>
-            <div class="flex min-w-[280px] flex-1 items-center">
-              <blockquote class="relative rounded-2xl border border-primary/25 bg-primary/[0.05] p-[30px]">
+            <div>
+              <blockquote class="relative rounded-2xl border border-primary/25 bg-primary/[0.05] p-[30px] lg:p-9">
                 <span class="absolute -top-3.5 left-6 font-heading text-5xl leading-none text-primary/35">&ldquo;</span>
-                <div class="flex flex-col gap-4 leading-relaxed text-ink-100">{c.quote.map((q) => <p>{q}</p>)}</div>
+                <div class="grid gap-x-9 gap-y-4 leading-relaxed text-ink-100 md:grid-cols-3">{c.quote.map((q) => <p>{q}</p>)}</div>
                 <footer class="mt-5 text-[13.5px]">
                   <span class="font-heading font-semibold text-ink-50">{c.person}</span>
                   <span class="text-ink-500"> — {c.role}</span>
