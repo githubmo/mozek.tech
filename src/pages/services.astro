@@ -49,8 +49,8 @@ const models = [
     >
     </div>
     <div class="relative mx-auto max-w-7xl">
-      <span class="animate-on-load font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// services</span>
-      <h1 class="animate-on-load-d1 mt-5 max-w-3xl font-heading text-4xl font-bold leading-[1.03] tracking-tight text-ink-50 lg:text-7xl">
+      <span class="animate-on-load font-mono text-sm text-ink-300">// services</span>
+      <h1 class="animate-on-load-d1 mt-5 max-w-3xl font-heading text-4xl font-bold leading-[1.03] text-ink-50 lg:text-7xl">
         Four ways we plug in.
       </h1>
       <p class="animate-on-load-d2 mt-6 max-w-2xl text-lg leading-relaxed text-ink-400">
@@ -64,10 +64,9 @@ const models = [
   <section class="mx-auto flex max-w-7xl flex-col gap-[18px] px-6 pb-20 lg:pb-28">
     {
       services.map((s) => (
-        <div class="rounded-[1.1rem] border border-ink-700/60 bg-base-200 p-7 lg:p-11" data-animate>
+        <div class="rounded-[1.1rem] border border-ink-700/60 bg-base-200 p-7 lg:p-11">
           <div class="flex items-baseline gap-4">
-            <span class="font-mono text-[15px] text-primary">{s.num}</span>
-            <h2 class="font-heading text-2xl font-bold tracking-tight text-ink-50 lg:text-3xl">{s.title}</h2>
+            <h2 class="font-heading text-2xl font-bold text-ink-50 lg:text-3xl">{s.title}</h2>
           </div>
           <div class="mt-6 flex flex-wrap gap-x-14 gap-y-7">
             <div class="min-w-[280px] flex-[1.3_1_360px]">
@@ -81,12 +80,12 @@ const models = [
               )}
               {s.link && (
                 <a href={s.link.href} class="group mt-4 inline-flex items-center gap-2 font-semibold text-primary">
-                  {s.link.label} <span class="font-mono transition-transform group-hover:translate-x-0.5">&rarr;</span>
+                  {s.link.label}
                 </a>
               )}
             </div>
             <div class="min-w-[240px] flex-1">
-              <div class="mb-3.5 font-mono text-xs uppercase tracking-[0.12em] text-ink-500">Included</div>
+              <div class="mb-3.5 font-mono text-sm text-ink-300">// included</div>
               <ul class="flex flex-col gap-2.5">
                 {s.included.map((b) => (
                   <li class="flex gap-2.5 text-[14.5px] text-ink-200">
@@ -104,14 +103,14 @@ const models = [
   <!-- ══════════ ENGAGEMENT MODELS ══════════ -->
   <section class="border-y border-ink-700/60 bg-base-200">
     <div class="mx-auto max-w-7xl px-6 py-20 lg:py-24">
-      <div class="max-w-xl" data-animate>
-        <span class="font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// engagement models</span>
-        <h2 class="mt-4 font-heading text-2xl font-bold tracking-tight text-ink-50 lg:text-4xl">However you want to work with us.</h2>
+      <div class="max-w-xl">
+        <span class="font-mono text-sm text-ink-300">// engagement models</span>
+        <h2 class="mt-4 font-heading text-2xl font-bold text-ink-50 lg:text-4xl">However you want to work with us.</h2>
       </div>
       <div class="mt-9 grid gap-[18px] sm:grid-cols-3">
         {
           models.map((m, i) => (
-            <div class="rounded-2xl border border-ink-700/60 bg-base-100 p-7" data-animate data-delay={String(i + 1)}>
+            <div class="rounded-2xl border border-ink-700/60 bg-base-100 p-7">
               <h3 class="font-heading text-xl font-semibold text-ink-50">{m.title}</h3>
               <p class="mt-3 text-[14.5px] leading-relaxed text-ink-400">{m.desc}</p>
             </div>

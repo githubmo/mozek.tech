@@ -52,8 +52,8 @@ const apart = [
     >
     </div>
     <div class="relative mx-auto max-w-7xl">
-      <span class="animate-on-load font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// about mozek</span>
-      <h1 class="animate-on-load-d1 mt-5 max-w-3xl font-heading text-4xl font-bold leading-[1.03] tracking-tight text-ink-50 lg:text-7xl">
+      <span class="animate-on-load font-mono text-sm text-ink-300">// about mozek</span>
+      <h1 class="animate-on-load-d1 mt-5 max-w-3xl font-heading text-4xl font-bold leading-[1.03] text-ink-50 lg:text-7xl">
         Senior engineers who sweat the hard parts.
       </h1>
       <p class="animate-on-load-d2 mt-6 max-w-2xl text-lg leading-relaxed text-ink-400">
@@ -67,12 +67,12 @@ const apart = [
 
   <!-- ══════════ FOUNDER ══════════ -->
   <section class="mx-auto max-w-7xl px-6 pb-20 lg:pb-24">
-    <div class="flex flex-wrap items-stretch gap-x-12 gap-y-8" data-animate>
+    <div class="flex flex-wrap items-stretch gap-x-12 gap-y-8">
       <div class="min-w-[260px] flex-1 overflow-hidden rounded-2xl border border-ink-700/60">
         <Image src={moImg} alt="Mohammed Abdulrazeg" class="h-full max-h-[440px] w-full object-cover object-center grayscale" width={520} height={560} />
       </div>
       <div class="flex min-w-[300px] flex-[1.4] flex-col justify-center rounded-2xl border border-ink-700/60 bg-base-200 p-8 lg:p-10">
-        <span class="font-mono text-xs uppercase tracking-[0.12em] text-ink-500">// the team</span>
+        <span class="font-mono text-sm text-ink-300">// the team</span>
         <h2 class="mt-3 font-heading text-2xl font-bold text-ink-50 lg:text-3xl">Mohammed Abdulrazeg</h2>
         <p class="mt-1 font-medium text-primary">Founder &amp; Director</p>
         <p class="mt-5 leading-relaxed text-ink-400">
@@ -90,7 +90,7 @@ const apart = [
     <div class="grid gap-[18px] md:grid-cols-3">
       {
         team.map((m, i) => (
-          <div class="flex flex-col rounded-2xl border border-ink-700/60 bg-base-200 p-7" data-animate data-delay={String(i + 1)}>
+          <div class="flex flex-col rounded-2xl border border-ink-700/60 bg-base-200 p-7">
             <div class="size-28 overflow-hidden rounded-xl border border-ink-700/60">
               <Image src={m.img} alt={m.name} class="size-full object-cover object-[50%_30%] grayscale" width={224} height={224} />
             </div>
@@ -105,14 +105,14 @@ const apart = [
 
   <!-- ══════════ HOW WE WORK ══════════ -->
   <section class="mx-auto max-w-7xl px-6 pb-20 lg:pb-28">
-    <div class="max-w-2xl" data-animate>
-      <span class="font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// how we work</span>
-      <h2 class="mt-4 font-heading text-2xl font-bold tracking-tight text-ink-50 lg:text-4xl">A clear path from outcome to operation.</h2>
+    <div class="max-w-2xl">
+      <span class="font-mono text-sm text-ink-300">// how we work</span>
+      <h2 class="mt-4 font-heading text-2xl font-bold text-ink-50 lg:text-4xl">A clear path from outcome to operation.</h2>
     </div>
     <div class="mt-10 grid gap-[18px] sm:grid-cols-2 lg:grid-cols-4">
       {
         process.map((p, i) => (
-          <div class="rounded-2xl border border-ink-700/60 bg-base-200 p-[26px]" data-animate data-delay={String(i + 1)}>
+          <div class="rounded-2xl border border-ink-700/60 bg-base-200 p-[26px]">
             <span class="font-mono text-sm text-primary">{p.num}</span>
             <h3 class="mt-4 font-heading text-xl font-semibold text-ink-50">{p.title}</h3>
             <p class="mt-2.5 text-[14.5px] leading-relaxed text-ink-400">{p.desc}</p>
@@ -124,10 +124,10 @@ const apart = [
 
   <!-- ══════════ WHAT SETS US APART ══════════ -->
   <section class="border-y border-ink-700/60 bg-base-200">
-    <div class="mx-auto flex max-w-7xl flex-wrap gap-x-20 gap-y-10 px-6 py-20 lg:py-24" data-animate>
+    <div class="mx-auto flex max-w-7xl flex-wrap gap-x-20 gap-y-10 px-6 py-20 lg:py-24">
       <div class="min-w-[300px] flex-1">
-        <span class="font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// what sets us apart</span>
-        <h2 class="mt-4 font-heading text-2xl font-bold tracking-tight text-ink-50 lg:text-4xl">Boutique by design.</h2>
+        <span class="font-mono text-sm text-ink-300">// what sets us apart</span>
+        <h2 class="mt-4 font-heading text-2xl font-bold text-ink-50 lg:text-4xl">Boutique by design.</h2>
         <p class="mt-6 max-w-md leading-relaxed text-ink-400">
           We stay small on purpose. It keeps the people you meet the same people
           who do the work — and keeps our advice honest.
@@ -137,7 +137,7 @@ const apart = [
         {
           apart.map((a, i) => (
             <div class:list={["flex gap-4 py-5", i < apart.length - 1 ? "border-b border-ink-700/60" : ""]}>
-              <span class="pt-0.5 font-mono text-primary">&rarr;</span>
+              <span class="pt-0.5 font-mono text-primary">+</span>
               <div>
                 <div class="font-heading text-[17px] font-semibold text-ink-50">{a.title}</div>
                 <div class="mt-1 text-[14.5px] leading-relaxed text-ink-400">{a.desc}</div>

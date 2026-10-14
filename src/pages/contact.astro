@@ -25,8 +25,8 @@ const mailto =
     >
     </div>
     <div class="relative mx-auto max-w-7xl">
-      <span class="animate-on-load font-mono text-[13px] uppercase tracking-[0.14em] text-primary">// contact</span>
-      <h1 class="animate-on-load-d1 mt-5 max-w-3xl font-heading text-4xl font-bold leading-[1.03] tracking-tight text-ink-50 lg:text-7xl">
+      <span class="animate-on-load font-mono text-sm text-ink-300">// contact</span>
+      <h1 class="animate-on-load-d1 mt-5 max-w-3xl font-heading text-4xl font-bold leading-[1.03] text-ink-50 lg:text-7xl">
         Let's talk.
       </h1>
       <p class="animate-on-load-d2 mt-6 max-w-xl text-lg leading-relaxed text-ink-400">
@@ -40,7 +40,7 @@ const mailto =
   <section class="mx-auto max-w-7xl px-6 pb-24 lg:pb-32">
     <div class="flex flex-wrap items-start gap-x-16 gap-y-9">
       <!-- Email CTA -->
-      <div class="min-w-[300px] flex-[1.4_1_420px]" data-animate>
+      <div class="min-w-[300px] flex-[1.4_1_420px]">
         <div class="relative overflow-hidden rounded-2xl border border-ink-700/60 bg-base-200 p-8 lg:p-12">
           <div
             class="bg-dotgrid pointer-events-none absolute inset-0"
@@ -48,25 +48,25 @@ const mailto =
           >
           </div>
           <div class="relative">
-            <span class="font-mono text-[13px] uppercase tracking-[0.12em] text-primary">// email us directly</span>
-            <a href="mailto:hello@mozek.tech" class="mt-4 block font-heading text-3xl font-bold tracking-tight text-ink-50 transition-colors hover:text-primary lg:text-4xl">
+            <span class="font-mono text-sm text-ink-300">// email us directly</span>
+            <a href="mailto:hello@mozek.tech" class="mt-4 block font-heading text-3xl font-bold text-ink-50 transition-colors hover:text-primary lg:text-4xl">
               hello@mozek.tech
             </a>
             <p class="mt-4 max-w-md leading-relaxed text-ink-400">
               A few lines on your project, timeline and goals is plenty. It
               reaches a senior engineer directly — no sales inbox, no handoff.
             </p>
-            <a href={mailto} class="mt-7 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3.5 font-semibold text-primary-content transition-transform hover:-translate-y-0.5">
-              Compose an email <span class="font-mono">&rarr;</span>
+            <a href={mailto} class="mt-7 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3.5 font-semibold text-primary-content transition-colors hover:bg-secondary">
+              Compose an email
             </a>
           </div>
         </div>
       </div>
 
       <!-- Address + next steps -->
-      <div class="flex min-w-[260px] flex-1 flex-col gap-8" data-animate data-delay="1">
+      <div class="flex min-w-[260px] flex-1 flex-col gap-8">
         <div>
-          <div class="mb-3 font-mono text-xs uppercase tracking-[0.12em] text-ink-500">Address</div>
+          <div class="mb-3 font-mono text-sm text-ink-300">Address</div>
           <p class="leading-relaxed text-ink-300">
             Mozek Technologies Ltd<br />
             The Forum Business Centre<br />
@@ -75,7 +75,7 @@ const mailto =
           </p>
         </div>
         <div>
-          <div class="mb-4 font-mono text-xs uppercase tracking-[0.12em] text-ink-500">What happens next</div>
+          <div class="mb-4 font-mono text-sm text-ink-300">What happens next</div>
           {
             next.map((s) => (
               <div class="flex gap-3.5 pb-4">

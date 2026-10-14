@@ -7,9 +7,9 @@ interface Props {
 }
 
 const {
-  title = "Accelerate your data & AI capabilities.",
-  subtitle = "Schedule a 30-minute consultation with our team.",
-  label = "Get in touch",
+  title = "Got a hard data problem? Let's talk it through.",
+  subtitle = "Book a 30-minute call with the team.",
+  label = "Book a call",
   href = "/contact",
 } = Astro.props;
 ---
@@ -17,7 +17,6 @@ const {
 <section class="mx-auto max-w-7xl px-6 py-24 lg:py-32">
   <div
     class="relative overflow-hidden rounded-[1.4rem] border border-ink-700/60 bg-base-200 px-8 py-14 text-center lg:px-16 lg:py-20"
-    data-animate
   >
     <div
       class="bg-dotgrid pointer-events-none absolute inset-0"
@@ -25,15 +24,15 @@ const {
     >
     </div>
     <div class="relative">
-      <h2 class="mx-auto max-w-2xl font-heading text-3xl font-bold leading-[1.06] tracking-tight text-ink-50 lg:text-5xl">
+      <h2 class="mx-auto max-w-2xl font-heading text-3xl font-bold leading-[1.06] text-ink-50 lg:text-5xl">
         {title}
       </h2>
       <p class="mx-auto mt-5 max-w-md text-lg text-ink-400">{subtitle}</p>
       <a
         href={href}
-        class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 font-semibold text-primary-content transition-transform hover:-translate-y-0.5"
+        class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3.5 font-semibold text-primary-content transition-colors hover:bg-secondary"
       >
-        {label} <span class="font-mono">&rarr;</span>
+        {label}
       </a>
     </div>
   </div>

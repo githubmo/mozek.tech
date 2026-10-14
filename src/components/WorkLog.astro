@@ -1,0 +1,28 @@
+---
+// Hero log: real engagements only, oldest first. Add a line when there's a new one.
+const log = [
+  { when: "2020", who: "brighthouse", what: "data acquisition + management for a new hedging platform" },
+  { when: "2024", who: "dealermade", what: "platform-wide outage, mitigated inside 2 weeks" },
+  { when: "2026", who: "brighthouse", what: "back again: new event-driven data platform" },
+  { when: "2026", who: "depop", what: "ml pipelines: data-gen 4–5× faster, training 2× faster" },
+  { when: "always", who: "training", what: "1,000+ students taught" },
+];
+---
+
+<div class="worklog rounded-xl border border-ink-700/60 bg-base-200 p-5 font-mono text-[13px] leading-relaxed sm:p-6 sm:text-sm">
+  <p class="text-ink-400"><span class="text-primary">~/mozek</span> $ git log --reverse --clients</p>
+  <ol class="mt-4 flex flex-col gap-3">
+    {
+      log.map((l, i) => (
+        <li class="worklog-line grid grid-cols-[4.5rem_1fr] gap-x-3 sm:grid-cols-[4.5rem_7.5rem_1fr]" style={`--i:${i}`}>
+          <span class="text-ink-400">{l.when}</span>
+          <span class="text-primary">{l.who}</span>
+          <span class="col-start-2 text-ink-100 sm:col-start-auto">{l.what}</span>
+        </li>
+      ))
+    }
+  </ol>
+  <p class="worklog-line mt-4 text-ink-400" style={`--i:${log.length}`}>
+    <span class="text-primary">~/mozek</span> $ <span class="animate-blink inline-block h-[1.1em] w-[0.55em] translate-y-[0.2em] bg-ink-200"></span>
+  </p>
+</div>
